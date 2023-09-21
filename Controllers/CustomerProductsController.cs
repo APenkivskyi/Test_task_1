@@ -27,43 +27,35 @@ public class CustomerProductsController : Controller
         try
         {
             string HistoryID = null; // zmienna na wypadek tworzenia kupującego 
-            if(Customer_Name != null && Customer_Surname != null && Customer_Delivery_Address != null && Order_Name != null && Order_Price != null && Order_Description != null) // sprawdzamy czy nie puste są pola
+            var customers = new Customers() // tworzenie kupującego
             {
-                var customers = new Customers() // tworzenie kupującego
-                {
-                    Customer_Name = Customer_Name,
-                    Customer_Delivery_Address = Customer_Delivery_Address,
-                    Customer_Surname = Customer_Surname
-                };
-                var existingCustomer = await _mongoDBService._customersCollection
-                .Find(x => x.Customer_Name == customers.Customer_Name && x.Customer_Surname == customers.Customer_Surname && x.Customer_Delivery_Address == customers.Customer_Delivery_Address)
-                .FirstOrDefaultAsync(); // sprawdzamy w baze czy mamy klienta o takich wartościach jak imię nazwisko i adres dostarczenia
-                if (existingCustomer == null) //jeżeli brak to tworzymy, jak nie pomijamy 
-                {
-                    await _mongoDBService.CreateAsync(customers); // Tworzenie nowego rekordu
-                    HistoryID = customers.Customer_Id;
-                }
-                var orders = new Orders() // tworzymy zamówienie 
-                {
-                    Order_Name = Order_Name,
-                    Order_Description = Order_Description,
-                    Order_Price = Order_Price,
-                };
-                if(HistoryID != null) // sprawdzamy czy zapisaliśmy ID
-                {
-                    orders.Order_CustomerId = HistoryID;
-                }
-                else
-                {
-                    orders.Order_CustomerId = existingCustomer.Customer_Id;
-                }
-                await _mongoDBService.CreateAsync(orders); // Tworzenie nowego rekordu
+                Customer_Name = Customer_Name,
+                Customer_Delivery_Address = Customer_Delivery_Address,
+                Customer_Surname = Customer_Surname
+            };
+            var existingCustomer = await _mongoDBService._customersCollection
+            .Find(x => x.Customer_Name == customers.Customer_Name && x.Customer_Surname == customers.Customer_Surname && x.Customer_Delivery_Address == customers.Customer_Delivery_Address)
+            .FirstOrDefaultAsync(); // sprawdzamy w baze czy mamy klienta o takich wartościach jak imię nazwisko i adres dostarczenia
+            if (existingCustomer == null) //jeżeli brak to tworzymy, jak nie pomijamy 
+            {
+                await _mongoDBService.CreateAsync(customers); // Tworzenie nowego rekordu
+                HistoryID = customers.Customer_Id;
+            }
+            var orders = new Orders() // tworzymy zamówienie 
+            {
+                Order_Name = Order_Name,
+                Order_Description = Order_Description,
+                Order_Price = Order_Price,
+            };
+            if (HistoryID != null) // sprawdzamy czy zapisaliśmy ID
+            {
+                orders.Order_CustomerId = HistoryID;
             }
             else
             {
-                // Pola nie mogą być NULL
-                return BadRequest("Pola nie mogą być puste.");
+                orders.Order_CustomerId = existingCustomer.Customer_Id;
             }
+            await _mongoDBService.CreateAsync(orders); // Tworzenie nowego rekordu
             return Ok("OK");
         }
         catch (Exception ex)
