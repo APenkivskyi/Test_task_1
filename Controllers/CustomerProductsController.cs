@@ -21,34 +21,6 @@ public class CustomerProductsController : Controller
     public async Task<List<Customers>> Get() {
         return await _mongoDBService.GetAsync();
     }
-
-    /*[HttpPost]
-    public async Task<IActionResult> Post([FromBody] Customers customers)
-    {
-        if (customers.Customer_Name != null && customers.Customer_Surname != null && customers.Customer_Delivery_Address != null)
-        {
-            var existingCustomer = await _mongoDBService._customersCollection
-                .Find(x => x.Customer_Name == customers.Customer_Name && x.Customer_Surname == customers.Customer_Surname && x.Customer_Delivery_Address == customers.Customer_Delivery_Address)
-                .FirstOrDefaultAsync();
-
-            if (existingCustomer == null)
-            {
-                await _mongoDBService.CreateAsync(customers); // Tworzenie nowego rekordu
-                _mongoDBService.HistoryID = customers.Customer_Id;
-                return CreatedAtAction(nameof(Get), new { id = customers.Customer_Id }, customers);
-            }
-            else
-            {
-                // Rekord o takich samych danych już istnieje
-                return BadRequest("Rekord o takich samych danych kupującego już istnieje.");
-            }
-        }
-        else
-        {
-            // Pola Customer_Name, Customer_Surname i Customer_Delivery_Address nie mogą być NULL
-            return BadRequest("Pola Customer_Name, Customer_Surname i Customer_Delivery_Address nie mogą być puste.");
-        }
-    }*/
     [HttpPost("{Customer_Name}/{Customer_Surname}/{Customer_Delivery_Address}/{Order_Name}/{Order_Description}/{Order_Price}")]
     public async Task<IActionResult> Post(string Customer_Name, string Customer_Surname, string Customer_Delivery_Address, string Order_Name, string Order_Description, int Order_Price)
     {
@@ -99,24 +71,6 @@ public class CustomerProductsController : Controller
             return BadRequest($"Error: {ex.Message}");
         }
     }
-    /*public async Task<IActionResult> Post([FromBody] Orders orders)
-    {
-        if (orders.Order_Name != null && orders.Order_Description != null && orders.Order_Price != null)
-        {
-            orders.Order_Id = _mongoDBService.HistoryID;
-            await _mongoDBService.CreateAsync(orders); // Tworzenie nowego rekordu
-            return CreatedAtAction(nameof(Get), new { id = orders.Order_Id }, orders);
-        }
-        else
-        {
-            // Pola Customer_Name, Customer_Surname i Customer_Delivery_Address nie mogą być NULL
-            return BadRequest("Pola Customer_Name, Customer_Surname i Customer_Delivery_Address nie mogą być puste.");
-        }
-    }*/
-
-
-
-
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(string id) {
         await _mongoDBService.DeleteAsync(id);
