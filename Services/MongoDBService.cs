@@ -26,14 +26,4 @@ public class MongoDBService
         await _ordersCollection.InsertOneAsync(orders);
         return;
     }
-    public async Task<List<Customers>> GetAsync()
-    {
-        return await _customersCollection.Find(new BsonDocument()).ToListAsync();
-    }
-    public async Task DeleteAsync(string id)
-    {
-        FilterDefinition<Customers> filter = Builders<Customers>.Filter.Eq("Customer_Id", id);
-        await _customersCollection.DeleteOneAsync(filter);
-        return;
-    }
 }

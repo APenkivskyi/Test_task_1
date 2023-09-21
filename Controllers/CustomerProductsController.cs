@@ -17,10 +17,6 @@ public class CustomerProductsController : Controller
     {
         _mongoDBService = mongoDBService;
     }
-    [HttpGet]
-    public async Task<List<Customers>> Get() {
-        return await _mongoDBService.GetAsync();
-    }
     [HttpPost("{Customer_Name}/{Customer_Surname}/{Customer_Delivery_Address}/{Order_Name}/{Order_Description}/{Order_Price}")]
     public async Task<IActionResult> Post(string Customer_Name, string Customer_Surname, string Customer_Delivery_Address, string Order_Name, string Order_Description, int Order_Price)
     {
@@ -63,10 +59,4 @@ public class CustomerProductsController : Controller
             return BadRequest($"Error: {ex.Message}");
         }
     }
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> Delete(string id) {
-        await _mongoDBService.DeleteAsync(id);
-        return NoContent();
-    }
-
 }
