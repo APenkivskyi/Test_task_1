@@ -9,7 +9,6 @@ public class MongoDBService
 {
     public readonly IMongoCollection<Customers> _customersCollection;
     public readonly IMongoCollection<Orders> _ordersCollection;
-    public string HistoryID;
     public MongoDBService(IOptions<MongoDBSettings> mongoDBSettings)
     {
         MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);
