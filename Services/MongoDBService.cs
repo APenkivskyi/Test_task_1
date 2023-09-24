@@ -26,4 +26,12 @@ public class MongoDBService
         await _ordersCollection.InsertOneAsync(orders);
         return;
     }
+    public async Task<Customers> FindCustomerAsync(string Customer_Name, string Customer_Surname, string Customer_Delivery_Address)
+    {
+        var existingCustomer = await _customersCollection
+            .Find(x => x.Customer_Name == Customer_Name && x.Customer_Surname == Customer_Surname && x.Customer_Delivery_Address == Customer_Delivery_Address)
+            .FirstOrDefaultAsync();
+
+        return existingCustomer;
+    }
 }
