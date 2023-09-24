@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "1SKVwEcul5Xq8IRzPpbnjIF9Lr6YGaanr54yQXaswZg2jJv7h+PIJjCgL36vlPilqOX1uu6DdIMK4ZRla4gh9A==",
-  "success": false,
+  "dgSpecHash": "hljBGLgoFG6AwH/oZxK4kTvecgVF3veEPFxvDaaqNZdCv7tLXzKdkxyMB92bPxG6uB/l7sjNEhLYwW116Kz3WQ==",
+  "success": true,
   "projectFilePath": "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_Task_1_Tests\\Test_Task_1_Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\antio\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
@@ -9,6 +9,7 @@
     "C:\\Users\\antio\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\antio\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\antio\\.nuget\\packages\\fakeiteasy\\7.4.0\\fakeiteasy.7.4.0.nupkg.sha512",
+    "C:\\Users\\antio\\.nuget\\packages\\mango\\1.0.0\\mango.1.0.0.nupkg.sha512",
     "C:\\Users\\antio\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\antio\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
     "C:\\Users\\antio\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.2.0\\microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",
@@ -61,7 +62,7 @@
     "C:\\Users\\antio\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.7.2\\microsoft.testplatform.objectmodel.17.7.2.nupkg.sha512",
     "C:\\Users\\antio\\.nuget\\packages\\microsoft.testplatform.testhost\\17.7.2\\microsoft.testplatform.testhost.17.7.2.nupkg.sha512",
     "C:\\Users\\antio\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
-    "C:\\Users\\antio\\.nuget\\packages\\mongocsharpdriver\\1.8.3\\mongocsharpdriver.1.8.3.nupkg.sha512",
+    "C:\\Users\\antio\\.nuget\\packages\\mongocsharpdriver\\2.21.0\\mongocsharpdriver.2.21.0.nupkg.sha512",
     "C:\\Users\\antio\\.nuget\\packages\\mongodb.bson\\2.21.0\\mongodb.bson.2.21.0.nupkg.sha512",
     "C:\\Users\\antio\\.nuget\\packages\\mongodb.driver\\2.21.0\\mongodb.driver.2.21.0.nupkg.sha512",
     "C:\\Users\\antio\\.nuget\\packages\\mongodb.driver.core\\2.21.0\\mongodb.driver.core.2.21.0.nupkg.sha512",
@@ -100,20 +101,11 @@
   ],
   "logs": [
     {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Nie można znaleźć projektu „C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_task_1\\Test_Task_1_Tests\\Test_task_1.csproj”. Sprawdź, czy odwołanie projektu jest prawidłowe i czy plik projektu istnieje.",
-      "libraryId": "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_task_1\\Test_Task_1_Tests\\Test_task_1.csproj",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Pakiet „mongocsharpdriver 1.8.3” został przywrócony przy użyciu elementu „.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1” zamiast platformy docelowej projektu „net7.0”. Ten pakiet może nie być w pełni kompatybilny z Twoim projektem.",
-      "libraryId": "mongocsharpdriver",
+      "message": "Pakiet „Mango 1.0.0” został przywrócony przy użyciu elementu „.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1” zamiast platformy docelowej projektu „net7.0”. Ten pakiet może nie być w pełni kompatybilny z Twoim projektem.",
+      "libraryId": "Mango",
       "targetGraphs": [
         "net7.0"
       ]

@@ -3,10 +3,10 @@ using System.Threading.Tasks;
 using Xunit;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using Test_task_1.Models;
-using Test_task_1.Services;
 using MongoDB.Bson;
 using MongoDB.Driver.Core.Clusters.ServerSelectors;
+using Test_task_1.Services;
+using Test_task_1.Models;
 
 namespace Test_task_1.Tests
 {

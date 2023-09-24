@@ -79,6 +79,19 @@
           }
         }
       },
+      "Mango/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/Mango.dll": {},
+          "lib/MongoDB.Bson.dll": {},
+          "lib/MongoDB.Driver.dll": {}
+        },
+        "runtime": {
+          "lib/Mango.dll": {},
+          "lib/MongoDB.Bson.dll": {},
+          "lib/MongoDB.Driver.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Authentication.Abstractions/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -1314,22 +1327,21 @@
           }
         }
       },
-      "mongocsharpdriver/1.8.3": {
+      "mongocsharpdriver/2.21.0": {
         "type": "package",
+        "dependencies": {
+          "MongoDB.Bson": "2.21.0",
+          "MongoDB.Driver": "2.21.0",
+          "MongoDB.Driver.Core": "2.21.0"
+        },
         "compile": {
-          "lib/net35/MongoDB.Bson.dll": {
-            "related": ".XML"
-          },
-          "lib/net35/MongoDB.Driver.dll": {
-            "related": ".XML"
+          "lib/netstandard2.1/MongoDB.Driver.Legacy.dll": {
+            "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net35/MongoDB.Bson.dll": {
-            "related": ".XML"
-          },
-          "lib/net35/MongoDB.Driver.dll": {
-            "related": ".XML"
+          "lib/netstandard2.1/MongoDB.Driver.Legacy.dll": {
+            "related": ".xml"
           }
         }
       },
@@ -1866,6 +1878,23 @@
         "runtime": {
           "lib/net6.0/ZstdSharp.dll": {}
         }
+      },
+      "Test_task_1/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Mango": "1.0.0",
+          "mongocsharpdriver": "2.21.0"
+        },
+        "compile": {
+          "bin/placeholder/Test_task_1.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Test_task_1.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -1988,6 +2017,20 @@
         "lib/netstandard2.0/FakeItEasy.xml",
         "lib/netstandard2.1/FakeItEasy.dll",
         "lib/netstandard2.1/FakeItEasy.xml"
+      ]
+    },
+    "Mango/1.0.0": {
+      "sha512": "otqjkKKJWjCewZZL9zgV0adeNq1iFGrxDvqn67LPhyfeQV33N7OYV3PpOtKCvcLKjFPDhb29XcQ9Y0Q9QUX7SA==",
+      "type": "package",
+      "path": "mango/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/Mango.dll",
+        "lib/MongoDB.Bson.dll",
+        "lib/MongoDB.Driver.dll",
+        "mango.1.0.0.nupkg.sha512",
+        "mango.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Authentication.Abstractions/2.2.0": {
@@ -3344,20 +3387,23 @@
         "version.txt"
       ]
     },
-    "mongocsharpdriver/1.8.3": {
-      "sha512": "A3s7XUrg0hfWtBvKW+KTl/7EVeB9HzC3a6dEQ0tUxdnckDRDHFqfDIkf56+iL3cClLfSOAFbqWKnIj53kTET+g==",
+    "mongocsharpdriver/2.21.0": {
+      "sha512": "lc/nih3StWcMm/ve5Y2E760usLNNQfq9t+flTig0HlOMqSUtcmpt01Mm6TdYPI0rX5p+Z6ykRbUMH+Ac45N8AA==",
       "type": "package",
-      "path": "mongocsharpdriver/1.8.3",
+      "path": "mongocsharpdriver/2.21.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "License.rtf",
-        "lib/net35/MongoDB.Bson.XML",
-        "lib/net35/MongoDB.Bson.dll",
-        "lib/net35/MongoDB.Driver.XML",
-        "lib/net35/MongoDB.Driver.dll",
-        "mongocsharpdriver.1.8.3.nupkg.sha512",
-        "mongocsharpdriver.nuspec"
+        "LICENSE.md",
+        "lib/net472/MongoDB.Driver.Legacy.dll",
+        "lib/net472/MongoDB.Driver.Legacy.xml",
+        "lib/netstandard2.0/MongoDB.Driver.Legacy.dll",
+        "lib/netstandard2.0/MongoDB.Driver.Legacy.xml",
+        "lib/netstandard2.1/MongoDB.Driver.Legacy.dll",
+        "lib/netstandard2.1/MongoDB.Driver.Legacy.xml",
+        "mongocsharpdriver.2.21.0.nupkg.sha512",
+        "mongocsharpdriver.nuspec",
+        "packageIcon.png"
       ]
     },
     "MongoDB.Bson/2.21.0": {
@@ -4352,11 +4398,15 @@
         "zstdsharp.port.0.6.2.nupkg.sha512",
         "zstdsharp.port.nuspec"
       ]
+    },
+    "Test_task_1/1.0.0": {
+      "type": "project",
+      "path": "../Test_task_1/Test_task_1.csproj",
+      "msbuildProject": "../Test_task_1/Test_task_1.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_task_1\\Test_Task_1_Tests\\Test_task_1.csproj",
       "FakeItEasy >= 7.4.0",
       "Microsoft.AspNetCore.Mvc.Core >= 2.2.5",
       "Microsoft.AspNetCore.Mvc.Testing >= 7.0.11",
@@ -4367,6 +4417,7 @@
       "NUnit >= 3.13.3",
       "NUnit3TestAdapter >= 4.5.0",
       "PaperTest >= 1.0.5",
+      "Test_task_1 >= 1.0.0",
       "xunit >= 2.4.2",
       "xunit.runner.visualstudio >= 2.4.5"
     ]
@@ -4403,8 +4454,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_task_1\\Test_Task_1_Tests\\Test_task_1.csproj": {
-              "projectPath": "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_task_1\\Test_Task_1_Tests\\Test_task_1.csproj"
+            "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_task_1\\Test_task_1.csproj": {
+              "projectPath": "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_task_1\\Test_task_1.csproj"
             }
           }
         }
@@ -4492,20 +4543,11 @@
   },
   "logs": [
     {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Nie można znaleźć projektu „C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_task_1\\Test_Task_1_Tests\\Test_task_1.csproj”. Sprawdź, czy odwołanie projektu jest prawidłowe i czy plik projektu istnieje.",
-      "libraryId": "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_task_1\\Test_Task_1_Tests\\Test_task_1.csproj",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Pakiet „mongocsharpdriver 1.8.3” został przywrócony przy użyciu elementu „.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1” zamiast platformy docelowej projektu „net7.0”. Ten pakiet może nie być w pełni kompatybilny z Twoim projektem.",
-      "libraryId": "mongocsharpdriver",
+      "message": "Pakiet „Mango 1.0.0” został przywrócony przy użyciu elementu „.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1” zamiast platformy docelowej projektu „net7.0”. Ten pakiet może nie być w pełni kompatybilny z Twoim projektem.",
+      "libraryId": "Mango",
       "targetGraphs": [
         "net7.0"
       ]

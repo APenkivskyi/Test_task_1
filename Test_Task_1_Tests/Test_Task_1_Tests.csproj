@@ -28,7 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Test_task_1\Test_Task_1_Tests\Test_task_1.csproj" />
+    <ProjectReference Include="..\Test_task_1\Test_task_1.csproj" />
   </ItemGroup>
 
 </Project>
