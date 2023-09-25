@@ -22,7 +22,7 @@ namespace Test_Task_1_Tests.Controller
         }
 
         [Test]
-        public async Task Post_ShouldInsertOrderAndCustomer()
+        public async Task Post_ShouldInsertOrderAndCustomer() // Sprawdzamy dodawanie klienta i zamówienia do bazy
         {
             // Przygotowanie danych testowych
             var customerName = "Adam";
@@ -48,7 +48,7 @@ namespace Test_Task_1_Tests.Controller
             _mockMongoDBService.Verify(x => x.CreateAsync(It.IsAny<Orders>()), Times.Once);
         }
         [Test]
-        public async Task Post_ShouldNotAddCustomerIfItAlreadyExists()
+        public async Task Post_ShouldNotAddCustomerIfItAlreadyExists() // sprawdzamy czy klient nie będzie się dodawał jeżeli istnieje w bazie
         {
             // Przygotowanie danych testowych
             var customerName = "Adam";
