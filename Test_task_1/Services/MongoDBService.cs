@@ -5,7 +5,7 @@ using MongoDB.Bson;
 
 namespace Test_task_1.Services;
 
-public class MongoDBService
+public class MongoDBService : IMongoDBService
 {
     public readonly IMongoCollection<Customers> _customersCollection;
     public readonly IMongoCollection<Orders> _ordersCollection;
