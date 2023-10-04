@@ -7,7 +7,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("MongoDB"));
-builder.Services.AddSingleton<MongoCustomerRepository>();
+<<<<<<< HEAD
+builder.Services.AddSingleton<IMongoDBService ,MongoDBService>();
+=======
+builder.Services.AddSingleton<MongoDBService>();
+>>>>>>> parent of dfc768f (zmiany nazw, stworzenie modelu request)
 
 var app = builder.Build();
 
