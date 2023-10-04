@@ -12,8 +12,8 @@ namespace Test_task_1.Controllers;
 [Route("api/[controller]")]
 public class CustomerProductsController : Controller
 {
-    private readonly ICustomerRepository _mongoDBService;
-    public CustomerProductsController(ICustomerRepository mongoDBService)
+    private readonly IMongoDBService _mongoDBService;
+    public CustomerProductsController(IMongoDBService mongoDBService)
     {
         _mongoDBService = mongoDBService;
     }
