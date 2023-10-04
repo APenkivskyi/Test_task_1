@@ -11,13 +11,13 @@ namespace Test_Task_1_Tests.Controller
 {
     public class CustomerProductsControllerTests
     {
-        private Mock<IMongoDBService> _mockMongoDBService;
+        private Mock<ICustomerRepository> _mockMongoDBService;
         private CustomerProductsController _controller;
 
         [SetUp]
         public void Setup()
         {
-            _mockMongoDBService = new Mock<IMongoDBService>();
+            _mockMongoDBService = new Mock<ICustomerRepository>();
             _controller = new CustomerProductsController(_mockMongoDBService.Object);
         }
 
