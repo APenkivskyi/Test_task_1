@@ -16,6 +16,6 @@ namespace Test_task_1.Models
         [BsonElement("order_customerId")]
         public string Order_CustomerId { get; set; }
         [BsonElement("order_price")]
-        public int Order_Price { get; set; }
+        public decimal Order_Price { get; set; }
     }
 }

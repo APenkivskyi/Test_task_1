@@ -1,55 +1,45 @@
-﻿using System;
-using Microsoft.AspNetCore.Mvc;
-using Test_task_1.Services;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
+using Test_task_1.Interface;
 using Test_task_1.Models;
-using MongoDB.Driver;
-using System.Security.Cryptography.X509Certificates;
+using Test_task_1.Services;
 
-namespace Test_task_1.Controllers;
-
-
-[Controller]
-[Route("api/[controller]")]
-public class CustomerProductsController : Controller
+namespace Test_task_1.Controllers
 {
-    private readonly IMongoDBService _mongoDBService;
-    public CustomerProductsController(IMongoDBService mongoDBService)
+    [Route("api/[controller]")]
+    [ApiController]
+    public class CustomerProductsController : ControllerBase
     {
-        _mongoDBService = mongoDBService;
-    }
-    [HttpPost("{Customer_Name}/{Customer_Surname}/{Customer_Delivery_Address}/{Order_Name}/{Order_Description}/{Order_Price}")]
-    public async Task<IActionResult> Post(string Customer_Name, string Customer_Surname, string Customer_Delivery_Address, string Order_Name, string Order_Description, int Order_Price)
-    {
-        try
+        private readonly ICustomerService _customerService;
+        private readonly IOrderService _orderService;
+        public CustomerProductsController(ICustomerService customerService, IOrderService orderService)
         {
-            var customers = new Customers() // tworzenie kupującego
-            {
-                Customer_Name = Customer_Name,
-                Customer_Delivery_Address = Customer_Delivery_Address,
-                Customer_Surname = Customer_Surname
-            };
-            var existingCustomer = await _mongoDBService.FindCustomerAsync(Customer_Name, Customer_Surname, Customer_Delivery_Address);
-            var orders = new Orders() // tworzymy zamówienie 
-            {
-                Order_Name = Order_Name,
-                Order_Description = Order_Description,
-                Order_Price = Order_Price,
-            };
-            if (existingCustomer == null) // sprawdzamy czy zapisaliśmy ID
-            {
-                await _mongoDBService.CreateAsync(customers); // Tworzenie nowego rekordu
-                orders.Order_CustomerId = customers.Customer_Id;
-            }
-            else
-            {
-                orders.Order_CustomerId = existingCustomer.Customer_Id;
-            }
-            await _mongoDBService.CreateAsync(orders); // Tworzenie nowego rekordu
-            return Ok("OK");
+            _customerService = customerService;
+            _orderService = orderService;
         }
-        catch (Exception ex)
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] Request request)
         {
-            return BadRequest($"Error: {ex.Message}");
+            try
+            {
+                if (request != null)
+                {
+                    string customerID = await _customerService.CreatingClientAsync(request);
+
+                    if (!string.IsNullOrEmpty(customerID))
+                    {
+                        await _orderService.OrderCreation(request, customerID);
+                        return Ok("OK");
+                    }
+                    return BadRequest();
+                }
+                return BadRequest(string.Empty);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error: {ex.Message}");
+            }
         }
     }
 }
