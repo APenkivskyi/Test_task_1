@@ -1,6 +1,0 @@
-Prawki: 
-1. IMongoDBService - to jest interfejs więc powinien reprezentować jakąś abstraccję, tutaj mamy abstrackje na jakieś repozytorium trzymające informacje o customerach więc raczej by nazwał ICustomerRepository,
-impomenetacja za to może być juz konkretena np; MongoCustomerRepository 
-2. To warto zaznaczyć to w jakiś sposób, czy to w nazwie klasy, czy folderu ,że tu są testy integracyjne a tu są testy jednostkowe. 
-3. [HttpPost("{Customer_Name}/{Customer_Surname}/{Customer_Delivery_Address}/{Order_Name}/{Order_Description}/{Order_Price}")] możnaby to przenieść do body post' a nie trzymać w query stringu
-4. Rozdzielić metody tworzenia cutomer i zamówienia?

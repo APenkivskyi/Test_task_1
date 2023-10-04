@@ -7,17 +7,17 @@ using Test_task_1.Controllers;
 using Test_task_1.Models;
 using Test_task_1.Services;
 
-namespace Test_Task_1_Tests.Unit_tests.Controller
+namespace Test_Task_1_Tests.Controller
 {
     public class CustomerProductsControllerTests
     {
-        private Mock<ICustomerRepository> _mockMongoDBService;
+        private Mock<IMongoDBService> _mockMongoDBService;
         private CustomerProductsController _controller;
 
         [SetUp]
         public void Setup()
         {
-            _mockMongoDBService = new Mock<ICustomerRepository>();
+            _mockMongoDBService = new Mock<IMongoDBService>();
             _controller = new CustomerProductsController(_mockMongoDBService.Object);
         }
 
