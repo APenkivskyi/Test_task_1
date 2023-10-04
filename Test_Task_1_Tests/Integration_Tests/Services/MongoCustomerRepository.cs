@@ -8,7 +8,7 @@ using MongoDB.Driver.Core.Clusters.ServerSelectors;
 using Test_task_1.Services;
 using Test_task_1.Models;
 
-namespace Test_task_1.Tests
+namespace Test_Task_1_Tests.Integration_Tests.Services
 {
     public class MongoDBServiceTests : IDisposable
     {

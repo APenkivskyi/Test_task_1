@@ -7,7 +7,7 @@ using Test_task_1.Controllers;
 using Test_task_1.Models;
 using Test_task_1.Services;
 
-namespace Test_Task_1_Tests.Controller
+namespace Test_Task_1_Tests.Unit_Tests.Controller
 {
     public class CustomerProductsControllerTests
     {
