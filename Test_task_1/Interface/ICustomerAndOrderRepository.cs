@@ -2,7 +2,7 @@
 
 namespace Test_task_1.Services
 {
-    public interface ICustomerRepository
+    public interface ICustomerAndOrderRepository
     {
         Task CreateAsync(Customers customers);
         Task CreateAsync(Orders orders);

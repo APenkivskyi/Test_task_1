@@ -5,11 +5,11 @@ using MongoDB.Bson;
 
 namespace Test_task_1.Services;
 
-public class MongoCustomerRepository : ICustomerRepository
+public class MongoCustomersAndOrdersRepository : ICustomerAndOrderRepository
 {
     public readonly IMongoCollection<Customers> _customersCollection;
     public readonly IMongoCollection<Orders> _ordersCollection;
-    public MongoCustomerRepository(IOptions<MongoDBSettings> mongoDBSettings)
+    public MongoCustomersAndOrdersRepository(IOptions<MongoDBSettings> mongoDBSettings)
     {
         MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);
         IMongoDatabase database = client.GetDatabase(mongoDBSettings.Value.DatabaseName);

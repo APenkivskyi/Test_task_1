@@ -5,11 +5,11 @@ namespace Test_task_1.Services
 {
     public class OrderService : IOrderService
     {
-        private readonly ICustomerRepository _mongoDBService;
+        private readonly ICustomerAndOrderRepository _customerRepository;
 
-        public OrderService(ICustomerRepository mongoDBService)
+        public OrderService(ICustomerAndOrderRepository mongoDBService)
         {
-            _mongoDBService = mongoDBService;
+            _customerRepository = mongoDBService;
         }
         public async Task OrderCreation(Request request, string customerID)
         {
@@ -21,7 +21,7 @@ namespace Test_task_1.Services
                 Order_CustomerId = customerID,
             };
 
-            await _mongoDBService.CreateAsync(orders);
+            await _customerRepository.CreateAsync(orders);
         }
     }
 }
