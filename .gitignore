@@ -1,0 +1,5 @@
+﻿################################################################################
+# Ten plik .gitignore został utworzony automatycznie przez Microsoft(R) Visual Studio.
+################################################################################
+
+/Test_Task_1_Tests/obj/Debug/net7.0/Test_Task_1_Tests.csproj.AssemblyReference.cache
