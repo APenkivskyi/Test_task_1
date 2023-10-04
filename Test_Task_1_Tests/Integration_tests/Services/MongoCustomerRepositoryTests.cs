@@ -8,11 +8,11 @@ using MongoDB.Driver.Core.Clusters.ServerSelectors;
 using Test_task_1.Services;
 using Test_task_1.Models;
 
-namespace Test_task_1.Tests
+namespace Test_Task_1_Tests.Integration_tests.Services
 {
     public class MongoDBServiceTests : IDisposable
     {
-        private readonly MongoDBService _mongoDBService;
+        private readonly MongoCustomerRepository _mongoDBService;
 
         public MongoDBServiceTests()
         {
@@ -25,7 +25,7 @@ namespace Test_task_1.Tests
                 CollectionNameOrders = "orders"
             };
             var mongoDBSettings = Options.Create(settings);
-            _mongoDBService = new MongoDBService(mongoDBSettings);
+            _mongoDBService = new MongoCustomerRepository(mongoDBSettings);
         }
 
         [Fact]

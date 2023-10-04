@@ -2,7 +2,7 @@
 
 namespace Test_task_1.Services
 {
-    public interface IMongoDBService
+    public interface ICustomerRepository
     {
         Task CreateAsync(Customers customers);
         Task CreateAsync(Orders orders);
