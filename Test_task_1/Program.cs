@@ -1,6 +1,7 @@
-using Test_task_1.Interface;
-using Test_task_1.Models;
-using Test_task_1.Services;
+using TestTask1.Interface;
+using TestTask1.Models;
+using TestTask1.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

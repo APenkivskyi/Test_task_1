@@ -6,10 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Test_task_1.Models;
-using Test_task_1.Services;
+using TestTask1.Interface;
+using TestTask1.Models;
+using TestTask1.Services;
 
-namespace Test_Task_1_Tests.Unit_Tests.Services
+namespace TestTask1Tests.Unit_Tests.Services
 {
     public class OrderServiceTests
     {
@@ -35,7 +36,7 @@ namespace Test_Task_1_Tests.Unit_Tests.Services
         {
             string customerID = "3242354543232"; // Fake Id kupującego
             // Wywołanie metody OrderCreation
-            _orderService.OrderCreation(request, customerID);
+            await _orderService.OrderCreation(request, customerID);
             // Sprawdzenie, czy metoda OrderCreation dla zamówienia została wywołana
             _customerRepository.Verify(x => x.CreateAsync(It.IsAny<Orders>()), Times.Once);
         }

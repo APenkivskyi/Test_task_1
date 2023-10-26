@@ -5,10 +5,10 @@ using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using MongoDB.Driver.Core.Clusters.ServerSelectors;
-using Test_task_1.Services;
-using Test_task_1.Models;
+using TestTask1.Models;
+using TestTask1.Services;
 
-namespace Test_Task_1_Tests.Integration_Tests.Services
+namespace TestTask1Tests.Integration_Tests.Services
 {
     public class MongoDBServiceTests : IDisposable
     {

@@ -1,7 +1,7 @@
-﻿using Test_task_1.Interface;
-using Test_task_1.Models;
+﻿using TestTask1.Interface;
+using TestTask1.Models;
 
-namespace Test_task_1.Services
+namespace TestTask1.Services
 {
     public class CustomerService : ICustomerService
     {

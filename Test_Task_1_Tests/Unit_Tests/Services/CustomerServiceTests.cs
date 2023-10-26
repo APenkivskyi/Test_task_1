@@ -6,12 +6,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Test_task_1.Controllers;
-using Test_task_1.Interface;
-using Test_task_1.Models;
-using Test_task_1.Services;
+using TestTask1.Controllers;
+using TestTask1.Interface;
+using TestTask1.Models;
+using TestTask1.Services;
 
-namespace Test_Task_1_Tests.Unit_Tests.Services
+namespace TestTask1Tests.Unit_Tests.Services
 {
     public class CustomerServiceTests
     {
@@ -52,10 +52,10 @@ namespace Test_Task_1_Tests.Unit_Tests.Services
                 Customer_Name = "Adam",
                 Customer_Surname = "Kowalski",
                 Customer_Delivery_Address = "Beach street",
-                Customer_Id="32423543563454"
+                Customer_Id = "32423543563454"
             };
             _customerRepository.Setup(x => x.FindCustomerAsync(request.Customer_Name, request.Customer_Surname, request.Customer_Delivery_Address))
-                .ReturnsAsync((Customers)customers);
+                .ReturnsAsync(customers);
             // Wywołanie metody CreatingClientAsync
             var result = await _customerService.CreatingClientAsync(request);
             // Sprawdzenie, czy wynik to Id kupującego

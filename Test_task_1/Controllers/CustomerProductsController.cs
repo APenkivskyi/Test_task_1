@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
-using Test_task_1.Interface;
-using Test_task_1.Models;
-using Test_task_1.Services;
+using TestTask1.Services;
+using TestTask1.Interface;
+using TestTask1.Models;
 
-namespace Test_task_1.Controllers
+namespace TestTask1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

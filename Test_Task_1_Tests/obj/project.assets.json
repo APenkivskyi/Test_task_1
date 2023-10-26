@@ -316,10 +316,10 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Mvc.Testing/7.0.11": {
+      "Microsoft.AspNetCore.Mvc.Testing/7.0.13": {
         "type": "package",
         "dependencies": {
-          "Microsoft.AspNetCore.TestHost": "7.0.11",
+          "Microsoft.AspNetCore.TestHost": "7.0.13",
           "Microsoft.Extensions.DependencyModel": "7.0.0",
           "Microsoft.Extensions.Hosting": "7.0.1"
         },
@@ -392,7 +392,7 @@
           }
         }
       },
-      "Microsoft.AspNetCore.TestHost/7.0.11": {
+      "Microsoft.AspNetCore.TestHost/7.0.13": {
         "type": "package",
         "dependencies": {
           "System.IO.Pipelines": "7.0.0"
@@ -1327,12 +1327,12 @@
           }
         }
       },
-      "mongocsharpdriver/2.21.0": {
+      "mongocsharpdriver/2.22.0": {
         "type": "package",
         "dependencies": {
-          "MongoDB.Bson": "2.21.0",
-          "MongoDB.Driver": "2.21.0",
-          "MongoDB.Driver.Core": "2.21.0"
+          "MongoDB.Bson": "2.22.0",
+          "MongoDB.Driver": "2.22.0",
+          "MongoDB.Driver.Core": "2.22.0"
         },
         "compile": {
           "lib/netstandard2.1/MongoDB.Driver.Legacy.dll": {
@@ -1345,7 +1345,7 @@
           }
         }
       },
-      "MongoDB.Bson/2.21.0": {
+      "MongoDB.Bson/2.22.0": {
         "type": "package",
         "dependencies": {
           "System.Memory": "4.5.5",
@@ -1362,12 +1362,12 @@
           }
         }
       },
-      "MongoDB.Driver/2.21.0": {
+      "MongoDB.Driver/2.22.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Logging.Abstractions": "2.0.0",
-          "MongoDB.Bson": "2.21.0",
-          "MongoDB.Driver.Core": "2.21.0",
+          "MongoDB.Bson": "2.22.0",
+          "MongoDB.Driver.Core": "2.22.0",
           "MongoDB.Libmongocrypt": "1.8.0"
         },
         "compile": {
@@ -1381,13 +1381,13 @@
           }
         }
       },
-      "MongoDB.Driver.Core/2.21.0": {
+      "MongoDB.Driver.Core/2.22.0": {
         "type": "package",
         "dependencies": {
           "AWSSDK.SecurityToken": "3.7.100.14",
           "DnsClient": "1.6.1",
           "Microsoft.Extensions.Logging.Abstractions": "2.0.0",
-          "MongoDB.Bson": "2.21.0",
+          "MongoDB.Bson": "2.22.0",
           "MongoDB.Libmongocrypt": "1.8.0",
           "SharpCompress": "0.30.1",
           "Snappier": "1.0.0",
@@ -1769,12 +1769,12 @@
           "lib/netcoreapp2.1/_._": {}
         }
       },
-      "xunit/2.4.2": {
+      "xunit/2.5.3": {
         "type": "package",
         "dependencies": {
-          "xunit.analyzers": "1.0.0",
-          "xunit.assert": "2.4.2",
-          "xunit.core": "[2.4.2]"
+          "xunit.analyzers": "1.4.0",
+          "xunit.assert": "2.5.3",
+          "xunit.core": "[2.5.3]"
         }
       },
       "xunit.abstractions/2.0.3": {
@@ -1790,10 +1790,10 @@
           }
         }
       },
-      "xunit.analyzers/1.0.0": {
+      "xunit.analyzers/1.4.0": {
         "type": "package"
       },
-      "xunit.assert/2.4.2": {
+      "xunit.assert/2.5.3": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1"
@@ -1809,11 +1809,11 @@
           }
         }
       },
-      "xunit.core/2.4.2": {
+      "xunit.core/2.5.3": {
         "type": "package",
         "dependencies": {
-          "xunit.extensibility.core": "[2.4.2]",
-          "xunit.extensibility.execution": "[2.4.2]"
+          "xunit.extensibility.core": "[2.5.3]",
+          "xunit.extensibility.execution": "[2.5.3]"
         },
         "build": {
           "build/xunit.core.props": {},
@@ -1824,7 +1824,7 @@
           "buildMultiTargeting/xunit.core.targets": {}
         }
       },
-      "xunit.extensibility.core/2.4.2": {
+      "xunit.extensibility.core/2.5.3": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
@@ -1841,11 +1841,11 @@
           }
         }
       },
-      "xunit.extensibility.execution/2.4.2": {
+      "xunit.extensibility.execution/2.5.3": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "xunit.extensibility.core": "[2.4.2]"
+          "xunit.extensibility.core": "[2.5.3]"
         },
         "compile": {
           "lib/netstandard1.1/xunit.execution.dotnet.dll": {
@@ -1858,16 +1858,16 @@
           }
         }
       },
-      "xunit.runner.visualstudio/2.4.5": {
+      "xunit.runner.visualstudio/2.5.3": {
         "type": "package",
         "compile": {
-          "lib/netcoreapp3.1/_._": {}
+          "lib/net6.0/_._": {}
         },
         "runtime": {
-          "lib/netcoreapp3.1/_._": {}
+          "lib/net6.0/_._": {}
         },
         "build": {
-          "build/netcoreapp3.1/xunit.runner.visualstudio.props": {}
+          "build/net6.0/xunit.runner.visualstudio.props": {}
         }
       },
       "ZstdSharp.Port/0.6.2": {
@@ -1879,18 +1879,18 @@
           "lib/net6.0/ZstdSharp.dll": {}
         }
       },
-      "Test_task_1/1.0.0": {
+      "TestTask1/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "Mango": "1.0.0",
-          "mongocsharpdriver": "2.21.0"
+          "mongocsharpdriver": "2.22.0"
         },
         "compile": {
-          "bin/placeholder/Test_task_1.dll": {}
+          "bin/placeholder/TestTask1.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Test_task_1.dll": {}
+          "bin/placeholder/TestTask1.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -2189,10 +2189,10 @@
         "microsoft.aspnetcore.mvc.core.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.Mvc.Testing/7.0.11": {
-      "sha512": "EAyliL6vpb1ZUOSY3rsONROFcd++UHn3BbTAZ8NF4eDrqkkvktztpHPWXMJvM1jypQYhNVgrQxfFke0UQ8t92A==",
+    "Microsoft.AspNetCore.Mvc.Testing/7.0.13": {
+      "sha512": "CX6U+238ixDwrLM3A0DSa6OuuH2XnwJ4Dpk+0MGyeQYrLSbROEb4zCbXTbgZp/421eRBGYQE4mZOu3JPhbjOLQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.mvc.testing/7.0.11",
+      "path": "microsoft.aspnetcore.mvc.testing/7.0.13",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2202,7 +2202,7 @@
         "buildTransitive/net7.0/Microsoft.AspNetCore.Mvc.Testing.targets",
         "lib/net7.0/Microsoft.AspNetCore.Mvc.Testing.dll",
         "lib/net7.0/Microsoft.AspNetCore.Mvc.Testing.xml",
-        "microsoft.aspnetcore.mvc.testing.7.0.11.nupkg.sha512",
+        "microsoft.aspnetcore.mvc.testing.7.0.13.nupkg.sha512",
         "microsoft.aspnetcore.mvc.testing.nuspec",
         "tasks/netstandard2.0/Microsoft.AspNetCore.Mvc.Testing.Tasks.dll"
       ]
@@ -2248,10 +2248,10 @@
         "microsoft.aspnetcore.routing.abstractions.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.TestHost/7.0.11": {
-      "sha512": "RtVGtkupMfjvf3qDqvdtCyL9P/Zt9wSiOuNofEPGDVzjPWOt3zaCbxLhbHOhtVS6p/cEsA0HWpzchAmPmSzIyw==",
+    "Microsoft.AspNetCore.TestHost/7.0.13": {
+      "sha512": "ac4Kiy4lSznlul0JuYpy9UpY6kt3b/8p8xNhyELYnOw/fAHKvOht3VsI2JPv2+TjG1qffr2DlToW5SMLKYqYyQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.testhost/7.0.11",
+      "path": "microsoft.aspnetcore.testhost/7.0.13",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2259,7 +2259,7 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net7.0/Microsoft.AspNetCore.TestHost.dll",
         "lib/net7.0/Microsoft.AspNetCore.TestHost.xml",
-        "microsoft.aspnetcore.testhost.7.0.11.nupkg.sha512",
+        "microsoft.aspnetcore.testhost.7.0.13.nupkg.sha512",
         "microsoft.aspnetcore.testhost.nuspec"
       ]
     },
@@ -3387,10 +3387,10 @@
         "version.txt"
       ]
     },
-    "mongocsharpdriver/2.21.0": {
-      "sha512": "lc/nih3StWcMm/ve5Y2E760usLNNQfq9t+flTig0HlOMqSUtcmpt01Mm6TdYPI0rX5p+Z6ykRbUMH+Ac45N8AA==",
+    "mongocsharpdriver/2.22.0": {
+      "sha512": "4fHZmsYJ+hV7OQsiN/tf1obMb5BY2g3YNzPOcL1sPDUCHs+1BhM5kx5ZEs68EtidE5GRmAcGuvIxh46KjDByMA==",
       "type": "package",
-      "path": "mongocsharpdriver/2.21.0",
+      "path": "mongocsharpdriver/2.22.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3401,15 +3401,15 @@
         "lib/netstandard2.0/MongoDB.Driver.Legacy.xml",
         "lib/netstandard2.1/MongoDB.Driver.Legacy.dll",
         "lib/netstandard2.1/MongoDB.Driver.Legacy.xml",
-        "mongocsharpdriver.2.21.0.nupkg.sha512",
+        "mongocsharpdriver.2.22.0.nupkg.sha512",
         "mongocsharpdriver.nuspec",
         "packageIcon.png"
       ]
     },
-    "MongoDB.Bson/2.21.0": {
-      "sha512": "QT+D1I3Jz6r6S6kCgJD1L9dRCLVJCKlkGRkA+tJ7uLpHRmjDNcNKy4D1T+L9gQrjl95lDN9PHdwEytdvCW/jzA==",
+    "MongoDB.Bson/2.22.0": {
+      "sha512": "7Z+uP+PeIBrkzzRORTCjrMSYhzQgXxLYkXyML8WsBN7tHddicNY9Xh8Cmp5gRR4U4NuEbXCQtHplju0iVY/KuA==",
       "type": "package",
-      "path": "mongodb.bson/2.21.0",
+      "path": "mongodb.bson/2.22.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3420,15 +3420,15 @@
         "lib/netstandard2.0/MongoDB.Bson.xml",
         "lib/netstandard2.1/MongoDB.Bson.dll",
         "lib/netstandard2.1/MongoDB.Bson.xml",
-        "mongodb.bson.2.21.0.nupkg.sha512",
+        "mongodb.bson.2.22.0.nupkg.sha512",
         "mongodb.bson.nuspec",
         "packageIcon.png"
       ]
     },
-    "MongoDB.Driver/2.21.0": {
-      "sha512": "VxKj1wuhadiXhaXkykCWRgsYOysdaOYJ202hJFz25UjkrqC/tHA8RS4hdS5HYfGWoI//fypBXnxZCkEjXLXdfw==",
+    "MongoDB.Driver/2.22.0": {
+      "sha512": "ngswtmzdtfaq+L0Ti1Kjm0QnVLgEJK233YPCpGN2buSArY2xEPsnQ2yos7SPGxuDzZPnxdn+XG9/OBt9atCpWw==",
       "type": "package",
-      "path": "mongodb.driver/2.21.0",
+      "path": "mongodb.driver/2.22.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3439,15 +3439,15 @@
         "lib/netstandard2.0/MongoDB.Driver.xml",
         "lib/netstandard2.1/MongoDB.Driver.dll",
         "lib/netstandard2.1/MongoDB.Driver.xml",
-        "mongodb.driver.2.21.0.nupkg.sha512",
+        "mongodb.driver.2.22.0.nupkg.sha512",
         "mongodb.driver.nuspec",
         "packageIcon.png"
       ]
     },
-    "MongoDB.Driver.Core/2.21.0": {
-      "sha512": "Ac44U3bQfinmdH5KNFjTidJe9LKW87SxkXJ3YuIUJQMITEc4083YF1yvjJxaSeYF9er0YgHSmwhHpsZv0Fwplg==",
+    "MongoDB.Driver.Core/2.22.0": {
+      "sha512": "aMlyeGbQ9wk/bmy9xSr6dnkOszO3MVgv1wNcsm4ACwiup//VCZxvj5k0Wq/E0xGBYmqs/tNXqJmLy1IawRXPHA==",
       "type": "package",
-      "path": "mongodb.driver.core/2.21.0",
+      "path": "mongodb.driver.core/2.22.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3459,7 +3459,7 @@
         "lib/netstandard2.0/MongoDB.Driver.Core.xml",
         "lib/netstandard2.1/MongoDB.Driver.Core.dll",
         "lib/netstandard2.1/MongoDB.Driver.Core.xml",
-        "mongodb.driver.core.2.21.0.nupkg.sha512",
+        "mongodb.driver.core.2.22.0.nupkg.sha512",
         "mongodb.driver.core.nuspec",
         "packageIcon.png"
       ]
@@ -4237,15 +4237,16 @@
         "version.txt"
       ]
     },
-    "xunit/2.4.2": {
-      "sha512": "6Mj73Ont3zj2CJuoykVJfE0ZmRwn7C+pTuRP8c4bnaaTFjwNG6tGe0prJ1yIbMe9AHrpDys63ctWacSsFJWK/w==",
+    "xunit/2.5.3": {
+      "sha512": "VxYDiWSwrLxOJ3UEN+ZPrBybB0SFShQ1E6PjT65VdoKCJhorgerFznThjSwawRH/WAip73YnucDVsE8WRj/8KQ==",
       "type": "package",
-      "path": "xunit/2.4.2",
+      "path": "xunit/2.5.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "_content/README.md",
         "_content/logo-128-transparent.png",
-        "xunit.2.4.2.nupkg.sha512",
+        "xunit.2.5.3.nupkg.sha512",
         "xunit.nuspec"
       ]
     },
@@ -4266,60 +4267,64 @@
         "xunit.abstractions.nuspec"
       ]
     },
-    "xunit.analyzers/1.0.0": {
-      "sha512": "BeO8hEgs/c8Ls2647fPfieMngncvf0D0xYNDfIO59MolxtCtVjFRd6SRc+7tj8VMqkVOuJcnc9eh4ngI2cAmLQ==",
+    "xunit.analyzers/1.4.0": {
+      "sha512": "7ljnTJfFjz5zK+Jf0h2dd2QOSO6UmFizXsojv/x4QX7TU5vEgtKZPk9RvpkiuUqg2bddtNZufBoKQalsi7djfA==",
       "type": "package",
-      "path": "xunit.analyzers/1.0.0",
+      "path": "xunit.analyzers/1.4.0",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "_content/README.md",
         "_content/logo-128-transparent.png",
         "analyzers/dotnet/cs/xunit.analyzers.dll",
         "analyzers/dotnet/cs/xunit.analyzers.fixes.dll",
         "tools/install.ps1",
         "tools/uninstall.ps1",
-        "xunit.analyzers.1.0.0.nupkg.sha512",
+        "xunit.analyzers.1.4.0.nupkg.sha512",
         "xunit.analyzers.nuspec"
       ]
     },
-    "xunit.assert/2.4.2": {
-      "sha512": "pxJISOFjn2XTTi1mcDCkRZrTFb9OtRRCtx2kZFNF51GdReLr1ls2rnyxvAS4JO247K3aNtflvh5Q0346K5BROA==",
+    "xunit.assert/2.5.3": {
+      "sha512": "MK3HiBckO3vdxEdUxXZyyRPsBNPsC/nz6y1gj/UZIZkjMnsVQyZPU8yxS/3cjTchYcqskt/nqUOS5wmD8JezdQ==",
       "type": "package",
-      "path": "xunit.assert/2.4.2",
+      "path": "xunit.assert/2.5.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "_content/README.md",
         "_content/logo-128-transparent.png",
         "lib/netstandard1.1/xunit.assert.dll",
         "lib/netstandard1.1/xunit.assert.xml",
-        "xunit.assert.2.4.2.nupkg.sha512",
+        "xunit.assert.2.5.3.nupkg.sha512",
         "xunit.assert.nuspec"
       ]
     },
-    "xunit.core/2.4.2": {
-      "sha512": "KB4yGCxNqIVyekhJLXtKSEq6BaXVp/JO3mbGVE1hxypZTLEe7h+sTbAhpA+yZW2dPtXTuiW+C1B2oxxHEkrmOw==",
+    "xunit.core/2.5.3": {
+      "sha512": "FE8yEEUkoMLd6kOHDXm/QYfX/dYzwc0c+Q4MQon6VGRwFuy6UVGwK/CFA5LEea+ZBEmcco7AEl2q78VjsA0j/w==",
       "type": "package",
-      "path": "xunit.core/2.4.2",
+      "path": "xunit.core/2.5.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "_content/README.md",
         "_content/logo-128-transparent.png",
         "build/xunit.core.props",
         "build/xunit.core.targets",
         "buildMultiTargeting/xunit.core.props",
         "buildMultiTargeting/xunit.core.targets",
-        "xunit.core.2.4.2.nupkg.sha512",
+        "xunit.core.2.5.3.nupkg.sha512",
         "xunit.core.nuspec"
       ]
     },
-    "xunit.extensibility.core/2.4.2": {
-      "sha512": "W1BoXTIN1C6kpVSMw25huSet25ky6IAQUNovu3zGOGN/jWnbgSoTyCrlIhmXSg0tH5nEf8q7h3OjNHOjyu5PfA==",
+    "xunit.extensibility.core/2.5.3": {
+      "sha512": "IjAQlPeZWXP89pl1EuOG9991GH1qgAL0rQfkmX2UV+PDenbYb7oBnQopL9ujE6YaXxgaQazp7lFjsDyyxD6Mtw==",
       "type": "package",
-      "path": "xunit.extensibility.core/2.4.2",
+      "path": "xunit.extensibility.core/2.5.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "_content/README.md",
         "_content/logo-128-transparent.png",
         "lib/net452/xunit.core.dll",
         "lib/net452/xunit.core.dll.tdnet",
@@ -4328,57 +4333,49 @@
         "lib/net452/xunit.runner.utility.net452.dll",
         "lib/netstandard1.1/xunit.core.dll",
         "lib/netstandard1.1/xunit.core.xml",
-        "xunit.extensibility.core.2.4.2.nupkg.sha512",
+        "xunit.extensibility.core.2.5.3.nupkg.sha512",
         "xunit.extensibility.core.nuspec"
       ]
     },
-    "xunit.extensibility.execution/2.4.2": {
-      "sha512": "CZmgcKkwpyo8FlupZdWpJCryrAOWLh1FBPG6gmVZuPQkGQsim/oL4PcP4nfrC2hHgXUFtluvaJ0Sp9PQKUMNpg==",
+    "xunit.extensibility.execution/2.5.3": {
+      "sha512": "w9eGCHl+gJj1GzZSf0VTzYPp/gv4fiUDkr+yR7/Wv9/ucO2CHltGg2TnyySLFjzekkjuxVJZUE+tZyDNzryJFw==",
       "type": "package",
-      "path": "xunit.extensibility.execution/2.4.2",
+      "path": "xunit.extensibility.execution/2.5.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "_content/README.md",
         "_content/logo-128-transparent.png",
         "lib/net452/xunit.execution.desktop.dll",
         "lib/net452/xunit.execution.desktop.xml",
         "lib/netstandard1.1/xunit.execution.dotnet.dll",
         "lib/netstandard1.1/xunit.execution.dotnet.xml",
-        "xunit.extensibility.execution.2.4.2.nupkg.sha512",
+        "xunit.extensibility.execution.2.5.3.nupkg.sha512",
         "xunit.extensibility.execution.nuspec"
       ]
     },
-    "xunit.runner.visualstudio/2.4.5": {
-      "sha512": "OwHamvBdUKgqsXfBzWiCW/O98BTx81UKzx2bieIOQI7CZFE5NEQZGi8PBQGIKawDW96xeRffiNf20SjfC0x9hw==",
+    "xunit.runner.visualstudio/2.5.3": {
+      "sha512": "HFFL6O+QLEOfs555SqHii48ovVa4CqGYanY+B32BjLpPptdE+wEJmCFNXlLHdEOD5LYeayb9EroaUpydGpcybg==",
       "type": "package",
-      "path": "xunit.runner.visualstudio/2.4.5",
+      "path": "xunit.runner.visualstudio/2.5.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "License.txt",
+        "_content/README.md",
+        "_content/logo-128-transparent.png",
         "build/net462/xunit.abstractions.dll",
         "build/net462/xunit.runner.reporters.net452.dll",
         "build/net462/xunit.runner.utility.net452.dll",
         "build/net462/xunit.runner.visualstudio.props",
         "build/net462/xunit.runner.visualstudio.testadapter.dll",
-        "build/netcoreapp3.1/xunit.abstractions.dll",
-        "build/netcoreapp3.1/xunit.runner.reporters.netcoreapp10.dll",
-        "build/netcoreapp3.1/xunit.runner.utility.netcoreapp10.dll",
-        "build/netcoreapp3.1/xunit.runner.visualstudio.dotnetcore.testadapter.dll",
-        "build/netcoreapp3.1/xunit.runner.visualstudio.props",
-        "build/uap10.0.16299/xunit.runner.reporters.netstandard15.dll",
-        "build/uap10.0.16299/xunit.runner.utility.netstandard15.dll",
-        "build/uap10.0.16299/xunit.runner.utility.uwp10.dll",
-        "build/uap10.0.16299/xunit.runner.utility.uwp10.pri",
-        "build/uap10.0.16299/xunit.runner.visualstudio.props",
-        "build/uap10.0.16299/xunit.runner.visualstudio.targets",
-        "build/uap10.0.16299/xunit.runner.visualstudio.uwp.testadapter.dll",
-        "build/uap10.0.16299/xunit.runner.visualstudio.uwp.testadapter.pri",
+        "build/net6.0/xunit.abstractions.dll",
+        "build/net6.0/xunit.runner.reporters.netcoreapp10.dll",
+        "build/net6.0/xunit.runner.utility.netcoreapp10.dll",
+        "build/net6.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll",
+        "build/net6.0/xunit.runner.visualstudio.props",
         "lib/net462/_._",
-        "lib/netcoreapp3.1/_._",
-        "lib/uap10.0.16299/_._",
-        "logo-512-transparent.png",
-        "xunit.runner.visualstudio.2.4.5.nupkg.sha512",
+        "lib/net6.0/_._",
+        "xunit.runner.visualstudio.2.5.3.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
     },
@@ -4399,27 +4396,27 @@
         "zstdsharp.port.nuspec"
       ]
     },
-    "Test_task_1/1.0.0": {
+    "TestTask1/1.0.0": {
       "type": "project",
-      "path": "../Test_task_1/Test_task_1.csproj",
-      "msbuildProject": "../Test_task_1/Test_task_1.csproj"
+      "path": "../Test_task_1/TestTask1.csproj",
+      "msbuildProject": "../Test_task_1/TestTask1.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
       "FakeItEasy >= 7.4.0",
       "Microsoft.AspNetCore.Mvc.Core >= 2.2.5",
-      "Microsoft.AspNetCore.Mvc.Testing >= 7.0.11",
+      "Microsoft.AspNetCore.Mvc.Testing >= 7.0.13",
       "Microsoft.NET.Test.Sdk >= 17.7.2",
-      "MongoDB.Driver >= 2.21.0",
+      "MongoDB.Driver >= 2.22.0",
       "MongoDB.Embedded >= 2.4.6.23000",
       "Moq >= 4.20.69",
       "NUnit >= 3.13.3",
       "NUnit3TestAdapter >= 4.5.0",
       "PaperTest >= 1.0.5",
-      "Test_task_1 >= 1.0.0",
-      "xunit >= 2.4.2",
-      "xunit.runner.visualstudio >= 2.4.5"
+      "TestTask1 >= 1.0.0",
+      "xunit >= 2.5.3",
+      "xunit.runner.visualstudio >= 2.5.3"
     ]
   },
   "packageFolders": {
@@ -4429,9 +4426,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_Task_1_Tests\\Test_Task_1_Tests.csproj",
-      "projectName": "Test_Task_1_Tests",
-      "projectPath": "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_Task_1_Tests\\Test_Task_1_Tests.csproj",
+      "projectUniqueName": "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_Task_1_Tests\\TestTask1Tests.csproj",
+      "projectName": "TestTask1Tests",
+      "projectPath": "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_Task_1_Tests\\TestTask1Tests.csproj",
       "packagesPath": "C:\\Users\\antio\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_Task_1_Tests\\obj\\",
       "projectStyle": "PackageReference",
@@ -4454,8 +4451,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_task_1\\Test_task_1.csproj": {
-              "projectPath": "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_task_1\\Test_task_1.csproj"
+            "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_task_1\\TestTask1.csproj": {
+              "projectPath": "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_task_1\\TestTask1.csproj"
             }
           }
         }
@@ -4480,7 +4477,7 @@
           },
           "Microsoft.AspNetCore.Mvc.Testing": {
             "target": "Package",
-            "version": "[7.0.11, )"
+            "version": "[7.0.13, )"
           },
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
@@ -4488,7 +4485,7 @@
           },
           "MongoDB.Driver": {
             "target": "Package",
-            "version": "[2.21.0, )"
+            "version": "[2.22.0, )"
           },
           "MongoDB.Embedded": {
             "target": "Package",
@@ -4512,13 +4509,13 @@
           },
           "xunit": {
             "target": "Package",
-            "version": "[2.4.2, )"
+            "version": "[2.5.3, )"
           },
           "xunit.runner.visualstudio": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2.4.5, )"
+            "version": "[2.5.3, )"
           }
         },
         "imports": [
@@ -4537,7 +4534,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.308\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.310\\RuntimeIdentifierGraph.json"
       }
     }
   },

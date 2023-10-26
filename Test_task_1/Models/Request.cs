@@ -1,4 +1,4 @@
-﻿namespace Test_task_1.Models
+﻿namespace TestTask1.Models
 {
     public class Request
     {

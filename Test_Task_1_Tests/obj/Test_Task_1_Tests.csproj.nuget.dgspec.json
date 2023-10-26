@@ -4,12 +4,12 @@
     "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_Task_1_Tests\\Test_Task_1_Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_task_1\\Test_task_1.csproj": {
+    "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_task_1\\TestTask1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_task_1\\Test_task_1.csproj",
-        "projectName": "Test_task_1",
-        "projectPath": "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_task_1\\Test_task_1.csproj",
+        "projectUniqueName": "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_task_1\\TestTask1.csproj",
+        "projectName": "TestTask1",
+        "projectPath": "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_task_1\\TestTask1.csproj",
         "packagesPath": "C:\\Users\\antio\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_task_1\\obj\\",
         "projectStyle": "PackageReference",
@@ -26,7 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.308\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.310\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -73,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.308\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.310\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -105,8 +105,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_task_1\\Test_task_1.csproj": {
-                "projectPath": "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_task_1\\Test_task_1.csproj"
+              "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_task_1\\TestTask1.csproj": {
+                "projectPath": "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_task_1\\TestTask1.csproj"
               }
             }
           }
@@ -188,7 +188,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.308\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.310\\RuntimeIdentifierGraph.json"
         }
       }
     }

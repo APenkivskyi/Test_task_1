@@ -1,9 +1,10 @@
-﻿using Test_task_1.Models;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using TestTask1.Models;
+using TestTask1.Interface;
 
-namespace Test_task_1.Services;
+namespace TestTask1.Services;
 
 public class MongoCustomersAndOrdersRepository : ICustomerAndOrderRepository
 {

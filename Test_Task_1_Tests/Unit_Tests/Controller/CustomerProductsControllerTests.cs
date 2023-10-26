@@ -3,12 +3,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
-using Test_task_1.Controllers;
-using Test_task_1.Interface;
-using Test_task_1.Models;
-using Test_task_1.Services;
+using TestTask1.Services;
+using TestTask1.Controllers;
+using TestTask1.Interface;
+using TestTask1.Models;
 
-namespace Test_Task_1_Tests.Unit_Tests.Controller
+namespace TestTask1Tests.Unit_Tests.Controller
 {
     public class CustomerProductsControllerTests
     {

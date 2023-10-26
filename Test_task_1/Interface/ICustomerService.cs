@@ -1,6 +1,6 @@
-﻿using Test_task_1.Models;
+﻿using TestTask1.Models;
 
-namespace Test_task_1.Interface
+namespace TestTask1.Interface
 {
     public interface ICustomerService
     {
