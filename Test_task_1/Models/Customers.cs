@@ -8,12 +8,12 @@ public class Customers
 {
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
-    public string? Customer_Id { get; set; }
-    [BsonElement("customer_name")]
-    public string Customer_Name { get; set; } = null!;
-    [BsonElement("customer_surname")]
-    public string Customer_Surname { get; set; } = null!;
-    [BsonElement("customer_delivery_Address")]
-    public string Customer_Delivery_Address { get; set; } = null!;
+    public string? CustomerId { get; set; }
+    [BsonElement("customerName")]
+    public string CustomerName { get; set; } = null!;
+    [BsonElement("customerSurname")]
+    public string CustomerSurname { get; set; } = null!;
+    [BsonElement("customerDeliveryAddress")]
+    public string CustomerDeliveryAddress { get; set; } = null!;
 }
 

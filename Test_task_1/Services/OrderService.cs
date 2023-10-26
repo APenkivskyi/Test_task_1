@@ -15,10 +15,10 @@ namespace TestTask1.Services
         {
             var orders = new Orders()
             {
-                Order_Name = request.Order_Name,
-                Order_Description = request.Order_Description,
-                Order_Price = request.Order_Price,
-                Order_CustomerId = customerID,
+                OrderName = request.OrderName,
+                OrderDescription = request.OrderDescription,
+                OrderPrice = request.OrderPrice,
+                OrderCustomerId = customerID,
             };
 
             await _customerRepository.CreateAsync(orders);

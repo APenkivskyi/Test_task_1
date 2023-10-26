@@ -29,12 +29,12 @@ namespace TestTask1Tests.Unit_Tests.Controller
             // Przygotowanie danych testowych
             Request request = new Request
             {
-                Customer_Name = "Adam",
-                Customer_Surname = "Kowalski",
-                Customer_Delivery_Address = "Beach street",
-                Order_Name = "Sample Order",
-                Order_Description = "Sample Description",
-                Order_Price = 100
+                CustomerName = "Adam",
+                CustomerSurname = "Kowalski",
+                CustomerDeliveryAddress = "Beach street",
+                OrderName = "Sample Order",
+                OrderDescription = "Sample Description",
+                OrderPrice = 100
             };
             _mockICustomerService.Setup(x => x.CreatingClientAsync(request)).ReturnsAsync("342235234543"); // Symuluemy zwracanie funcją CreatingClientAsync ID kupującego.
 

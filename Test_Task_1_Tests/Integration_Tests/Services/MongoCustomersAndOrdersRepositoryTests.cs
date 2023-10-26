@@ -34,20 +34,20 @@ namespace TestTask1Tests.Integration_Tests.Services
             // Arrange
             var customer = new Customers // tworzenie klienta testowego
             {
-                Customer_Name = "John",
-                Customer_Surname = "Doe",
-                Customer_Delivery_Address = "123 Main St"
+                CustomerName = "John",
+                CustomerSurname = "Doe",
+                CustomerDeliveryAddress = "123 Main St"
             };
 
             // Act
             await _mongoDBService.CreateAsync(customer); // dodajemy klienta testowego do bazy 
 
             // Assert
-            var foundCustomer = await _mongoDBService.FindCustomerAsync(customer.Customer_Name, customer.Customer_Surname, customer.Customer_Delivery_Address); // sprawdzamy czy klient testowy istnieje w bazie
+            var foundCustomer = await _mongoDBService.FindCustomerAsync(customer.CustomerName, customer.CustomerSurname, customer.CustomerDeliveryAddress); // sprawdzamy czy klient testowy istnieje w bazie
             Assert.NotNull(foundCustomer); // zmienna nie może być pusta
-            Assert.Equal(customer.Customer_Name, foundCustomer.Customer_Name); // porównanie parametrów
-            Assert.Equal(customer.Customer_Surname, foundCustomer.Customer_Surname);
-            Assert.Equal(customer.Customer_Delivery_Address, foundCustomer.Customer_Delivery_Address);
+            Assert.Equal(customer.CustomerName, foundCustomer.CustomerName); // porównanie parametrów
+            Assert.Equal(customer.CustomerSurname, foundCustomer.CustomerSurname);
+            Assert.Equal(customer.CustomerDeliveryAddress, foundCustomer.CustomerDeliveryAddress);
         }
 
         [Fact]
@@ -56,9 +56,9 @@ namespace TestTask1Tests.Integration_Tests.Services
             // Arrange
             var orders = new Orders // zamówienie testowe
             {
-                Order_Name = "Koszulka",
-                Order_Description = "Koszulka wygodna polo club",
-                Order_CustomerId = "3253425346344534"
+                OrderName = "Koszulka",
+                OrderDescription = "Koszulka wygodna polo club",
+                OrderCustomerId = "3253425346344534"
             };
 
             // Act
@@ -66,12 +66,12 @@ namespace TestTask1Tests.Integration_Tests.Services
 
             // Assert
             var foundOrders = await _mongoDBService._ordersCollection
-                .Find(x => x.Order_Name == orders.Order_Name && x.Order_Description == orders.Order_Description && x.Order_CustomerId == orders.Order_CustomerId)
+                .Find(x => x.OrderName == orders.OrderName && x.OrderDescription == orders.OrderDescription && x.OrderCustomerId == orders.OrderCustomerId)
                 .FirstOrDefaultAsync(); // szukamy zamówienie w bazie danych
             Assert.NotNull(foundOrders); // wartość nie może być pusta
-            Assert.Equal(orders.Order_Name, foundOrders.Order_Name); // porównujemy parametry otrzymanego zamówienia z bazy
-            Assert.Equal(orders.Order_Description, foundOrders.Order_Description);
-            Assert.Equal(orders.Order_CustomerId, foundOrders.Order_CustomerId);
+            Assert.Equal(orders.OrderName, foundOrders.OrderName); // porównujemy parametry otrzymanego zamówienia z bazy
+            Assert.Equal(orders.OrderDescription, foundOrders.OrderDescription);
+            Assert.Equal(orders.OrderCustomerId, foundOrders.OrderCustomerId);
         }
 
         public void Dispose() // czyścimy po testach baze 

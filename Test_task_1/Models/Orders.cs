@@ -8,14 +8,14 @@ namespace TestTask1.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string? Order_Id { get; set; }
-        [BsonElement("order_name")]
-        public string Order_Name { get; set; }
-        [BsonElement("order_description")]
-        public string Order_Description { get; set; }
-        [BsonElement("order_customerId")]
-        public string Order_CustomerId { get; set; }
-        [BsonElement("order_price")]
-        public decimal Order_Price { get; set; }
+        public string? OrderId { get; set; }
+        [BsonElement("orderName")]
+        public string OrderName { get; set; } = null!;
+        [BsonElement("orderDescription")]
+        public string OrderDescription { get; set; } = null!;
+        [BsonElement("orderCustomerId")]
+        public string OrderCustomerId { get; set; } = null!;
+        [BsonElement("orderPrice")]
+        public decimal? OrderPrice { get; set; } = null!;
     }
 }

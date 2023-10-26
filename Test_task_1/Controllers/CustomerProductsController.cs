@@ -18,7 +18,7 @@ namespace TestTask1.Controllers
             _customerService = customerService;
             _orderService = orderService;
         }
-        [HttpPost]
+        [HttpPost("AddCustomerOrOrder")]
         public async Task<IActionResult> Post([FromBody] Request request)
         {
             try
