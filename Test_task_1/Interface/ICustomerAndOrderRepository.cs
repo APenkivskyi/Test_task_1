@@ -6,6 +6,6 @@ namespace TestTask1.Interface
     {
         Task CreateAsync(Customers customers);
         Task CreateAsync(Orders orders);
-        Task<Customers> FindCustomerAsync(string Customer_Name, string Customer_Surname, string Customer_Delivery_Address);
+        Task<Customers> FindCustomerAsync(string CustomerName, string CustomerSurname, string CustomerDeliveryAddress);
     }
 }

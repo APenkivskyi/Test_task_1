@@ -7,6 +7,8 @@ using TestTask1.Services;
 using TestTask1.Controllers;
 using TestTask1.Interface;
 using TestTask1.Models;
+using Castle.Core.Resource;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace TestTask1Tests.Unit_Tests.Controller
 {
@@ -36,7 +38,13 @@ namespace TestTask1Tests.Unit_Tests.Controller
                 OrderDescription = "Sample Description",
                 OrderPrice = 100
             };
-            _mockICustomerService.Setup(x => x.CreatingClientAsync(request)).ReturnsAsync("342235234543"); // Symuluemy zwracanie funcją CreatingClientAsync ID kupującego.
+            Customers fakeCustomer = new Customers
+            {
+                CustomerName = "Adam",
+                CustomerSurname = "Kowalski",
+                CustomerDeliveryAddress = "Beach street",
+            };
+            _mockICustomerService.Setup(x => x.CreatingClientAsync(fakeCustomer)).ReturnsAsync("ewrjn435nj34j5n");
 
             // Wywołanie metody Post
             var result = await _controller.Post(request);
