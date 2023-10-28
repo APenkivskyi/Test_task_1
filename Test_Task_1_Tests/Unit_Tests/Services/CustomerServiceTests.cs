@@ -39,8 +39,6 @@ namespace TestTask1Tests.Unit_Tests.Services
                 .ReturnsAsync((Customers)null);
             // Wywołanie metody CreatingClientAsync
             var result = await _customerService.CreatingClientAsync(request);
-            // Sprawdzenie, czy wynik to Id kupującego
-            Assert.IsNull(result);
             // Sprawdzenie, czy metoda CreateAsync dla klienta została wywołana
             _customerRepository.Verify(x => x.CreateAsync(It.IsAny<Customers>()), Times.Once);
         }

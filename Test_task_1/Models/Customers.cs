@@ -15,5 +15,7 @@ public class Customers
     public string CustomerSurname { get; set; } = null!;
     [BsonElement("customerDeliveryAddress")]
     public string CustomerDeliveryAddress { get; set; } = null!;
+    [BsonElement("addressOfResidence")]
+    public string AddressOfResidence { get; set;} = null!;
 }
 

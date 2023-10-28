@@ -31,10 +31,18 @@ namespace TestTask1Tests.Unit_Tests.Services
             OrderDescription = "Sample Description",
             OrderPrice = 100
         };
+        Customers customers = new Customers
+        {
+            CustomerName = "Adam",
+            CustomerSurname = "Kowalski",
+            CustomerDeliveryAddress = "Beach street",
+            CustomerId = "32423543563454"
+        };
         [Test]
         public async Task CreatedNewOrder_ShouldCreateOrder()
         {
             string customerID = "3242354543232"; // Fake Id kupującego
+            _customerRepository.Setup(x => x.FindCustomerIdAsync(customerID)).ReturnsAsync(customers);
             // Wywołanie metody OrderCreation
             await _orderService.OrderCreation(request, customerID);
             // Sprawdzenie, czy metoda OrderCreation dla zamówienia została wywołana

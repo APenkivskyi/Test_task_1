@@ -4,6 +4,7 @@ namespace TestTask1.Interface
 {
     public interface IOrderService
     {
-        Task OrderCreation(Request request, string customerID);
+        Task<string> OrderCreation(Request request, string customerID);
+        Task<Orders> FindOrders(string OrderCustomerId);
     }
 }
