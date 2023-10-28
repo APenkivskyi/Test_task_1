@@ -3,6 +3,7 @@ using MongoDB.Driver;
 using MongoDB.Bson;
 using TestTask1.Models;
 using TestTask1.Interface;
+using System.Collections.Generic;
 
 namespace TestTask1.Services;
 
@@ -43,11 +44,11 @@ public class MongoCustomersAndOrdersRepository : ICustomerAndOrderRepository
 
         return existingCustomer;
     }
-    public async Task<Orders> FindOrdersByCustomerId(string CustomerId)
+    public async Task<List<Orders>> FindOrdersByCustomerId(string CustomerId)
     {
         var existingOrders = await _ordersCollection
             .Find(x => x.OrderCustomerId == CustomerId)
-            .FirstOrDefaultAsync();
+            .ToListAsync();
         return existingOrders;
     }
 }

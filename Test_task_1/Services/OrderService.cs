@@ -29,7 +29,7 @@ namespace TestTask1.Services
             }
             return null;
         }
-        public async Task<Orders> FindOrders(string OrderCustomerId)
+        public async Task<List<Orders>> FindOrders(string OrderCustomerId)
         {
             var result = _customerRepository.FindOrdersByCustomerId(OrderCustomerId);
             if(result != null)

@@ -8,6 +8,6 @@ namespace TestTask1.Interface
         Task CreateAsync(Orders orders);
         Task<Customers> FindCustomerAsync(string CustomerName, string CustomerSurname, string CustomerDeliveryAddress);
         Task<Customers> FindCustomerIdAsync(string CustomerId);
-        Task<Orders> FindOrdersByCustomerId(string CustomerId);
+        Task<List<Orders>> FindOrdersByCustomerId(string CustomerId);
     }
 }
