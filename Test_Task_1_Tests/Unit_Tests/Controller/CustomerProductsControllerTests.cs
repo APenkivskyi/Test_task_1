@@ -8,6 +8,8 @@ using TestTask1.Interface;
 using TestTask1.Models;
 using Castle.Core.Resource;
 using TestTask1.Controllers;
+using System.Diagnostics;
+using Newtonsoft.Json;
 
 namespace TestTask1Tests.Unit_Tests.Controller
 {
@@ -25,7 +27,7 @@ namespace TestTask1Tests.Unit_Tests.Controller
             _controller = new CustomerProductsController(_mockICustomerService.Object, _mockIOrderService.Object);
         }
         [Test]
-        public async Task ShouldAddOrderAndCustomer() // Sprawdzamy dodawanie klienta i zamówienia do bazy
+        public async Task ShouldAddOrderAndCustomerResultSuccess() // Sprawdzamy dodawanie klienta i zamówienia do bazy
         {
             // Przygotowanie danych testowych
             Request request = new Request
@@ -47,7 +49,7 @@ namespace TestTask1Tests.Unit_Tests.Controller
 
         }
         [Test]
-        public async Task ShouldAddCustomer() // Sprawdzamy dodawanie klienta
+        public async Task ShouldAddCustomerResultSuccess() // Sprawdzamy dodawanie klienta
         {
             // Przygotowanie danych testowych
             Request request = new Request
@@ -64,7 +66,7 @@ namespace TestTask1Tests.Unit_Tests.Controller
             Assert.AreEqual("342235234543", response);
         }
         [Test]
-        public async Task ShouldAddOrder() // Sprawdzamy dodawanie zamówienia
+        public async Task ShouldAddOrderResultSuccess() // Sprawdzamy dodawanie zamówienia
         {
             // Przygotowanie danych testowych
             Request request = new Request
@@ -82,5 +84,55 @@ namespace TestTask1Tests.Unit_Tests.Controller
             Assert.AreEqual("23432523345", response);
             Assert.AreEqual(200, result.StatusCode);
         }
+        [Test]
+        public async Task SearchOrdersByCustomerIdResultSuccess()
+        {
+            // Arrange
+            Request request = new Request
+            {
+                CustomerId = "2342356436453",
+                OrderName = "Sample Order",
+                OrderDescription = "Sample Description",
+                OrderPrice = 100
+            };
+            Customers customer = new Customers
+            {
+                CustomerId = "2342356436453",
+                CustomerName = "Jan",
+                CustomerSurname = "Kowalski"
+            };
+            List<Orders> order = new List<Orders>
+    {
+        new Orders
+        {
+            OrderId = "4234532523246546435",
+            OrderCustomerId = "2342356436453",
+            OrderName = "Koszulka",
+            OrderDescription = "Koszulka BOSS",
+            OrderPrice = 150
+        },
+        new Orders
+        {
+            OrderId = "423453252324435",
+            OrderCustomerId = "2342356436453",
+            OrderName = "Spodnie",
+            OrderDescription = "Najlepsze spodnie",
+            OrderPrice = 200
+        }
+    };
+            _mockICustomerService.Setup(x => x.FindCustomer(request)).ReturnsAsync(customer);
+            _mockIOrderService.Setup(x => x.FindOrders(customer.CustomerId)).ReturnsAsync(order);
+
+            // Act
+            var result = await _controller.SearchСustomerAndOrders(request) as OkObjectResult;
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(200, result.StatusCode);
+            var response = result.Value as dynamic;
+            Assert.IsNotNull(response);
+            Assert.Equals(customer.CustomerName, response.customer.CustomerName);
+        }
+
     }
 }

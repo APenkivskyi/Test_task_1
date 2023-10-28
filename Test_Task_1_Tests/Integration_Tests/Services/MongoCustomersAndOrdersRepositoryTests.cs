@@ -29,7 +29,7 @@ namespace TestTask1Tests.Integration_Tests.Services
         }
 
         [Fact]
-        public async Task AddCustomer_ResultSuccessFindCustomerInDataBase()
+        public async Task AddCustomerResultSuccessFindCustomerInDataBase()
         {
             // Arrange
             var customer = new Customers // tworzenie klienta testowego
@@ -51,7 +51,7 @@ namespace TestTask1Tests.Integration_Tests.Services
         }
 
         [Fact]
-        public async Task AddOrderInDataBase_ResultSuccessFindOrderInDataBase()
+        public async Task AddOrderInDataBaseResultSuccessFindOrderInDataBase()
         {
             // Arrange
             var orders = new Orders // zamówienie testowe
@@ -73,7 +73,59 @@ namespace TestTask1Tests.Integration_Tests.Services
             Assert.Equal(orders.OrderDescription, foundOrders.OrderDescription);
             Assert.Equal(orders.OrderCustomerId, foundOrders.OrderCustomerId);
         }
-
+        [Fact]
+        public async Task FindCustomerInDatabaseResultSuccess()
+        {
+            // Arrange
+            var customer = new Customers // tworzenie klienta testowego
+            {
+                CustomerName = "John",
+                CustomerSurname = "Doe",
+                CustomerDeliveryAddress = "123 Main St"
+            };
+            await _mongoDBService.CreateAsync(customer);
+            // Act
+            var result = await _mongoDBService.FindCustomerIdAsync(customer.CustomerId);
+            // Assert
+            Assert.Equal(customer.CustomerName, result.CustomerName);
+            Assert.Equal(customer.CustomerSurname, result.CustomerSurname);
+            Assert.Equal(customer.CustomerDeliveryAddress, result.CustomerDeliveryAddress);
+        }
+        [Fact]
+        public async Task FindOrdersByCustomerIdResultSuccess()
+        {
+            // Arrange
+            var order1 = new Orders // zamówienie testowe
+            {
+                OrderName = "Koszulka",
+                OrderDescription = "Koszulka wygodna polo club",
+                OrderCustomerId = "3253425346344534"
+            };
+            var order2 = new Orders // zamówienie testowe
+            {
+                OrderName = "Spodnie",
+                OrderDescription = "Spodnie BOSS",
+                OrderCustomerId = "3253425346344534"
+            };
+            var order3 = new Orders // zamówienie testowe
+            {
+                OrderName = "Czapka",
+                OrderDescription = "Koszulka club",
+                OrderCustomerId = "3253425346344534"
+            };
+            await _mongoDBService.CreateAsync(order1);
+            await _mongoDBService.CreateAsync(order2);
+            await _mongoDBService.CreateAsync(order3);
+            // Act
+            var result = await _mongoDBService._ordersCollection.Find(x => x.OrderCustomerId == order1.OrderCustomerId).ToListAsync();
+            // Assert
+            Assert.Equal(result[0].OrderName, order1.OrderName);
+            Assert.Equal(result[0].OrderDescription, order1.OrderDescription);
+            Assert.Equal(result[1].OrderName, order2.OrderName);
+            Assert.Equal(result[1].OrderDescription, order2.OrderDescription);
+            Assert.Equal(result[2].OrderName, order3.OrderName);
+            Assert.Equal(result[2].OrderDescription, order3.OrderDescription);
+        }
         public void Dispose() // czyścimy po testach baze 
         {
             var client = new MongoClient("mongodb://localhost:27017");
