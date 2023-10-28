@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "i3G6GkcGN0DAC6nfEsUY5n/8f3sV39ErtnB77RLcjlDJqiDjZq737IRDqF54ByjvvnyBZdrksWEPmt2BV26QOA==",
+  "dgSpecHash": "jY38ApV9onUqYBpHWnUhzTpytP4t8LsKoFq/zHUscmNP7QTA9smxV8BbrJHNbBM4Ak7H/18nGYe4bLG68U245g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\antio\\source\\repos\\Test_task_1\\Test_Task_1_Tests\\TestTask1Tests.csproj",
+  "projectFilePath": "C:\\Users\\antio\\source\\repos\\APenkivskyi\\Test_task_1\\Test_Task_1_Tests\\TestTask1Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\antio\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\antio\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
