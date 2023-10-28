@@ -23,35 +23,44 @@ namespace TestTask1Tests.Unit_Tests.Services
             _customerRepository = new Mock<ICustomerAndOrderRepository>();
             _customerService = new CustomerService(_customerRepository.Object);
         }
-        Customers customer = new Customers
+        Request request = new Request
         {
             CustomerName = "Adam",
             CustomerSurname = "Kowalski",
             CustomerDeliveryAddress = "Beach street",
-            CustomerId = "32423543563454"
+            OrderName = "Sample Order",
+            OrderDescription = "Sample Description",
+            OrderPrice = 100
         };
         [Test]
         public async Task CreateNewCustomer_ShouldReturnNullIdCustomer()
         {
-            _customerRepository.Setup(x => x.FindCustomerAsync(customer.CustomerName, customer.CustomerSurname, customer.CustomerDeliveryAddress))
+            _customerRepository.Setup(x => x.FindCustomerAsync(request.CustomerName, request.CustomerSurname, request.CustomerDeliveryAddress))
                 .ReturnsAsync((Customers)null);
             // Wywołanie metody CreatingClientAsync
-            var result = await _customerService.CreatingClientAsync(customer);
+            var result = await _customerService.CreatingClientAsync(request);
             // Sprawdzenie, czy wynik to Id kupującego
-            Assert.IsNotNull(result);
+            Assert.IsNull(result);
             // Sprawdzenie, czy metoda CreateAsync dla klienta została wywołana
             _customerRepository.Verify(x => x.CreateAsync(It.IsAny<Customers>()), Times.Once);
         }
         [Test]
         public async Task CreatingAnExistingCustomer_ShouldReturnIdCustomer()
         {
-            _customerRepository.Setup(x => x.FindCustomerAsync(customer.CustomerName, customer.CustomerSurname, customer.CustomerDeliveryAddress))
-                .ReturnsAsync(customer);
+            Customers customers = new Customers
+            {
+                CustomerName = "Adam",
+                CustomerSurname = "Kowalski",
+                CustomerDeliveryAddress = "Beach street",
+                CustomerId = "32423543563454"
+            };
+            _customerRepository.Setup(x => x.FindCustomerAsync(request.CustomerName, request.CustomerSurname, request.CustomerDeliveryAddress))
+                .ReturnsAsync(customers);
             // Wywołanie metody CreatingClientAsync
-            var result = await _customerService.CreatingClientAsync(customer);
+            var result = await _customerService.CreatingClientAsync(request);
             // Sprawdzenie, czy wynik to Id kupującego
-            Assert.AreEqual(customer.CustomerId, result);
-            // Sprawdzenie, czy metoda CreateAsync dla klienta nie została wywołana
+            Assert.AreEqual(customers.CustomerId, result);
+            // Sprawdzenie, czy metoda CreateAsync dla klienta została wywołana
             _customerRepository.Verify(x => x.CreateAsync(It.IsAny<Customers>()), Times.Never);
         }
     }

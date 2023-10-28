@@ -11,14 +11,21 @@ namespace TestTask1.Services
         {
             _mongoDBService = mongoDBService;
         }
-        public async Task<string> CreatingClientAsync(Customers customer)
+        public async Task<string> CreatingClientAsync(Request request)
         {
-            var existingCustomer = await _mongoDBService.FindCustomerAsync(customer.CustomerName, customer.CustomerSurname, customer.CustomerDeliveryAddress);
+            var customers = new Customers()
+            {
+                CustomerName = request.CustomerName,
+                CustomerDeliveryAddress = request.CustomerDeliveryAddress,
+                CustomerSurname = request.CustomerSurname
+            };
+
+            var existingCustomer = await _mongoDBService.FindCustomerAsync(request.CustomerName, request.CustomerSurname, request.CustomerDeliveryAddress);
 
             if (existingCustomer == null)
             {
-                await _mongoDBService.CreateAsync(customer);
-                return customer.CustomerId;
+                await _mongoDBService.CreateAsync(customers);
+                return customers.CustomerId;
             }
             else
             {

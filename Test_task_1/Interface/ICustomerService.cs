@@ -4,6 +4,6 @@ namespace TestTask1.Interface
 {
     public interface ICustomerService
     {
-        Task<string> CreatingClientAsync(Customers customer);
+        Task<string> CreatingClientAsync(Request request);
     }
 }
