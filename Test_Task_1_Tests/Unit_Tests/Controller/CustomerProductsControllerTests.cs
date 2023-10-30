@@ -90,10 +90,7 @@ namespace TestTask1Tests.Unit_Tests.Controller
             // Arrange
             Request request = new Request
             {
-                CustomerId = "2342356436453",
-                OrderName = "Sample Order",
-                OrderDescription = "Sample Description",
-                OrderPrice = 100
+                CustomerId = "2342356436453"
             };
             Customers customer = new Customers
             {
