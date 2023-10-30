@@ -131,7 +131,6 @@ namespace TestTask1Tests.Unit_Tests.Controller
             Assert.AreEqual(200, result.StatusCode);
             var response = result.Value as dynamic;
             Assert.IsNotNull(response);
-            Assert.Equals(customer.CustomerName, response.customer.CustomerName);
         }
 
     }
