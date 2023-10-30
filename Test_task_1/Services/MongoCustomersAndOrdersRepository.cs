@@ -9,8 +9,8 @@ namespace TestTask1.Services;
 
 public class MongoCustomersAndOrdersRepository : ICustomerAndOrderRepository
 {
-    public readonly IMongoCollection<Customers> _customersCollection;
-    public readonly IMongoCollection<Orders> _ordersCollection;
+    private readonly IMongoCollection<Customers> _customersCollection;
+    private readonly IMongoCollection<Orders> _ordersCollection;
     public MongoCustomersAndOrdersRepository(IOptions<MongoDBSettings> mongoDBSettings)
     {
         MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);
