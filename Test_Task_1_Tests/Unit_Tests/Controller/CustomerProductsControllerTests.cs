@@ -99,24 +99,24 @@ namespace TestTask1Tests.Unit_Tests.Controller
                 CustomerSurname = "Kowalski"
             };
             List<Orders> order = new List<Orders>
-            {
-                new Orders
-                {
-                OrderId = "4234532523246546435",
-                OrderCustomerId = "2342356436453",
-                OrderName = "Koszulka",
-                OrderDescription = "Koszulka BOSS",
-                OrderPrice = 150
-                },
-                new Orders
-                {
-                OrderId = "423453252324435",
-                OrderCustomerId = "2342356436453",
-                OrderName = "Spodnie",
-                OrderDescription = "Najlepsze spodnie",
-                OrderPrice = 200
-                }
-            };
+    {
+        new Orders
+        {
+            OrderId = "4234532523246546435",
+            OrderCustomerId = "2342356436453",
+            OrderName = "Koszulka",
+            OrderDescription = "Koszulka BOSS",
+            OrderPrice = 150
+        },
+        new Orders
+        {
+            OrderId = "423453252324435",
+            OrderCustomerId = "2342356436453",
+            OrderName = "Spodnie",
+            OrderDescription = "Najlepsze spodnie",
+            OrderPrice = 200
+        }
+    };
             _mockICustomerService.Setup(x => x.FindCustomer(request)).ReturnsAsync(customer);
             _mockIOrderService.Setup(x => x.FindOrders(customer.CustomerId)).ReturnsAsync(order);
 
@@ -128,6 +128,7 @@ namespace TestTask1Tests.Unit_Tests.Controller
             Assert.AreEqual(200, result.StatusCode);
             var response = result.Value as dynamic;
             Assert.IsNotNull(response);
+
         }
 
     }

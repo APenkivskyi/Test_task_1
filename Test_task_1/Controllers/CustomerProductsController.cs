@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using TestTask1.Services;
 using TestTask1.Interface;
 using TestTask1.Models;
+using System.Dynamic;
 
 namespace TestTask1.Controllers
 {
@@ -79,23 +80,32 @@ namespace TestTask1.Controllers
                 return BadRequest($"Error: {ex.Message}");
             }
         }
-        [HttpGet("SearchСustomerAndOrders")]
+        [HttpGet("SearchСustomerAndOrders")] // Wyszukiwamy klienta po ID
         public async Task<IActionResult> SearchСustomerAndOrders([FromBody] Request request)
         {
             try
             {
                 if (request != null)
                 {
-                    var resultCustomer = await _customerService.FindCustomer(request);
-                    if(resultCustomer != null)
+                    var resultCustomer = await _customerService.FindCustomer(request); // sprawdzamy czy mamy taki ID w bazie danych
+                    if (resultCustomer != null) // jeżeli mamy sprawdzamy czy są zamówienia klienta
                     {
                         var resultOrders = await _orderService.FindOrders(resultCustomer.CustomerId);
-                        var result = new
+                        if (resultOrders != null)
                         {
-                            customer = resultCustomer,
-                            Orders = resultOrders
-                        };
-                        return Ok(result);
+                            dynamic result = new ExpandoObject();
+                            result.customer = resultCustomer;
+                            if (resultOrders.Any())
+                            {
+                                result.Orders = resultOrders;
+                            }
+                            else
+                            {
+                                result.Orders = "Brak zamówień";
+                            }
+                            return Ok(result);
+                        }
+                        return BadRequest("Błąd w pobieraniu zamówień klienta.");
                     }
                     return BadRequest("Klienta nie znaleziono!");
                 }
