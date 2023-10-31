@@ -10,6 +10,7 @@ using Castle.Core.Resource;
 using TestTask1.Controllers;
 using System.Diagnostics;
 using Newtonsoft.Json;
+using System.Dynamic;
 
 namespace TestTask1Tests.Unit_Tests.Controller
 {
@@ -126,9 +127,17 @@ namespace TestTask1Tests.Unit_Tests.Controller
             // Assert
             Assert.IsNotNull(result);
             Assert.AreEqual(200, result.StatusCode);
-            var response = result.Value as dynamic;
+            var response = result.Value as ExpandoObject;
             Assert.IsNotNull(response);
-
+            dynamic resultData = response as dynamic;
+            Assert.IsNotNull(resultData.customer);
+            var resultCustomer = resultData.customer as Customers;
+            Assert.AreEqual(customer.CustomerId, resultCustomer.CustomerId);
+            Assert.AreEqual(customer.CustomerName, resultCustomer.CustomerName);
+            Assert.AreEqual(customer.CustomerSurname, resultCustomer.CustomerSurname);
+            Assert.IsNotNull(resultData.Orders);
+            var resultOrders = resultData.Orders as List<Orders>;
+            Assert.AreEqual(order.Count, resultOrders.Count);
         }
 
     }
