@@ -44,10 +44,10 @@ public class MongoCustomersAndOrdersRepository : ICustomerAndOrderRepository
 
         return existingCustomer;
     }
-    public async Task<List<Orders>> FindOrdersByCustomerId(string CustomerId)
+    public async Task<List<Orders>> FindOrdersByCustomerId(string customerId)
     {
         var existingOrders = await _ordersCollection
-            .Find(x => x.OrderCustomerId == CustomerId)
+            .Find(x => x.OrderCustomerId == customerId)
             .ToListAsync();
         return existingOrders;
     }

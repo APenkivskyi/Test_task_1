@@ -34,7 +34,7 @@ namespace TestTask1.Controllers
             }
         }
         [HttpGet("SearchСustomer")] // Wyszukiwamy klienta po ID
-        public async Task<IActionResult> SearchСustomer([FromQuery] String customerId)
+        public async Task<IActionResult> SearchСustomer([FromQuery] string customerId)
         {
             try
             {

@@ -12,29 +12,27 @@ namespace TestTask1.Services
         {
             _customerRepository = mongoDBService;
         }
-        public async Task<string?> OrderCreation(Request request, string customerID)
+        public async Task<string?> OrderCreation(Orders order)
         {
-            var clientInDatabase = _customerRepository.FindCustomerIdAsync(customerID);
+            var clientInDatabase = _customerRepository.FindCustomerIdAsync(order.OrderCustomerId);
             if(clientInDatabase.Result != null)
             {
-                var orders = new Orders()
-                {
-                    OrderName = request.OrderName,
-                    OrderDescription = request.OrderDescription,
-                    OrderPrice = request.OrderPrice,
-                    OrderCustomerId = customerID,
-                };
-                await _customerRepository.CreateAsync(orders);
-                return (orders.OrderId);
+                await _customerRepository.CreateAsync(order);
+                return (order.OrderId);
             }
             return null;
         }
-        public async Task<List<Orders>> FindOrders(string OrderCustomerId)
+        public async Task<List<Orders>> FindOrders(string customerId)
         {
-            var result = _customerRepository.FindOrdersByCustomerId(OrderCustomerId);
-            if(result != null)
+            var resultCustomer = await _customerRepository.FindCustomerIdAsync(customerId);
+            if(resultCustomer != null)
             {
-                return await result;
+                var result = _customerRepository.FindOrdersByCustomerId(customerId);
+                if (result.Result != null)
+                {
+                    return await result;
+                }
+                return null;
             }
             return null;
         }

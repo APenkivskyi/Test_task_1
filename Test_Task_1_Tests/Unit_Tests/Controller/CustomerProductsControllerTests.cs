@@ -18,14 +18,14 @@ namespace TestTask1Tests.Unit_Tests.Controller
     {
         private Mock<ICustomerService> _mockICustomerService;
         private Mock<IOrderService> _mockIOrderService;
-        private ProductsController _controller;
+        private OrdersController _controller;
 
         [SetUp]
         public void Setup()
         {
             _mockICustomerService = new Mock<ICustomerService>();
             _mockIOrderService = new Mock<IOrderService>();
-            _controller = new ProductsController(_mockICustomerService.Object, _mockIOrderService.Object);
+            _controller = new OrdersController(_mockICustomerService.Object, _mockIOrderService.Object);
         }
         [Test]
         public async Task ShouldAddCustomerResultSuccess() // Sprawdzamy dodawanie klienta
