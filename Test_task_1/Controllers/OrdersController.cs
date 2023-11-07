@@ -46,17 +46,17 @@ namespace TestTask1.Controllers
         {
             try
             {
-                if (customerId != null)
+                if (customerId != null) // sprawdzamy czy nie puste zapytanie
                 {
-                    var result = await _orderService.FindOrders(customerId);
-                    if (result == null)
+                    var result = await _orderService.FindOrders(customerId); // sprawdzamy czy ID mamy w bazie
+                    if (result == null) // Jeżeli dostajemy null oznacza że id customer'a nie znaleziono w bazie.
                     {
                         return BadRequest("Id customera nie znaleziono.");
-                    } else if (result.Count > 0)
+                    } else if (result.Count > 0) // Jeżeli dostajemy count wiekszy od 0 to oznacza że customer istnieje oraz zamówienia.
                     {
                         return Ok(result);
                     }
-                    return NoContent();
+                    return NoContent(); // jeżeli count == 0 to mamy customera ale nie mamy orders
                 }
                 return BadRequest("Brak id customer'a");
             }
