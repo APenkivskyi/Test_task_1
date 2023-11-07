@@ -18,28 +18,28 @@ namespace TestTask1Tests.Unit_Tests.Controller
     {
         private Mock<ICustomerService> _mockICustomerService;
         private Mock<IOrderService> _mockIOrderService;
-        private CustomerProductsController _controller;
+        private ProductsController _controller;
 
         [SetUp]
         public void Setup()
         {
             _mockICustomerService = new Mock<ICustomerService>();
             _mockIOrderService = new Mock<IOrderService>();
-            _controller = new CustomerProductsController(_mockICustomerService.Object, _mockIOrderService.Object);
+            _controller = new ProductsController(_mockICustomerService.Object, _mockIOrderService.Object);
         }
         [Test]
         public async Task ShouldAddCustomerResultSuccess() // Sprawdzamy dodawanie klienta
         {
             // Przygotowanie danych testowych
-            Request request = new Request
+            Customers customer = new Customers
             {
                 CustomerName = "Adam",
                 CustomerSurname = "Kowalski",
                 CustomerDeliveryAddress = "Beach street"
             };
-            _mockICustomerService.Setup(x => x.CreatingClientAsync(request)).ReturnsAsync("342235234543");
+            _mockICustomerService.Setup(x => x.CreatingClientAsync(customer)).ReturnsAsync("342235234543");
             // Wywołanie metody AddCustomer
-            var result = await _controller.AddCustomer(request) as OkObjectResult;
+            var result = await _controller.AddCustomer(customer) as OkObjectResult;
             // Sprawdzamy czy wywołana funkcja zwraca id customera
             var response = result.Value as string;
             Assert.AreEqual("342235234543", response);
@@ -96,7 +96,7 @@ namespace TestTask1Tests.Unit_Tests.Controller
             OrderPrice = 200
         }
     };
-            _mockICustomerService.Setup(x => x.FindCustomer(request)).ReturnsAsync(customer);
+            _mockICustomerService.Setup(x => x.FindCustomer(customer)).ReturnsAsync(customer);
             _mockIOrderService.Setup(x => x.FindOrders(customer.CustomerId)).ReturnsAsync(order);
 
             // Act

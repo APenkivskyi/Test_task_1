@@ -10,31 +10,14 @@ namespace TestTask1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomerProductsController : ControllerBase
+    public class ProductsController : ControllerBase
     {
         private readonly ICustomerService _customerService;
         private readonly IOrderService _orderService;
-        public CustomerProductsController(ICustomerService customerService, IOrderService orderService)
+        public ProductsController(ICustomerService customerService, IOrderService orderService)
         {
             _customerService = customerService;
             _orderService = orderService;
-        }
-        [HttpPost("AddCustomer")]
-        public async Task<IActionResult> AddCustomer([FromBody] Request request)
-        {
-            try
-            {
-                if (request != null)
-                {
-                    string customerId = await _customerService.CreatingClientAsync(request);
-                    return Ok(customerId);
-                }
-                return BadRequest(string.Empty);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Error: {ex.Message}");
-            }
         }
         [HttpPost("AddOrder")]
         public async Task<IActionResult> AddOrder([FromBody] Request request)
@@ -64,7 +47,12 @@ namespace TestTask1.Controllers
             {
                 if (request != null)
                 {
-                    var resultCustomer = await _customerService.FindCustomer(request); // sprawdzamy czy mamy taki ID w bazie danych
+                    Customers customer = new Customers
+                    {
+                        CustomerId = request.CustomerId,
+
+                    };
+                    var resultCustomer = await _customerService.FindCustomer(customer); // sprawdzamy czy mamy taki ID w bazie danych
                     if (resultCustomer != null) // jeżeli mamy sprawdzamy czy są zamówienia klienta
                     {
                         var resultOrders = await _orderService.FindOrders(resultCustomer.CustomerId);

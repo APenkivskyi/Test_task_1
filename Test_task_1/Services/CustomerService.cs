@@ -11,39 +11,25 @@ namespace TestTask1.Services
         {
             _mongoDBService = mongoDBService;
         }
-        public async Task<string> CreatingClientAsync(Request request)
+        public async Task<string> CreatingClientAsync(Customers customer)
         {
-            var customers = new Customers()
-            {
-                CustomerName = request.CustomerName,
-                CustomerDeliveryAddress = request.CustomerDeliveryAddress,
-                CustomerSurname = request.CustomerSurname
-            };
-
-            var existingCustomer = await _mongoDBService.FindCustomerAsync(request.CustomerName, request.CustomerSurname, request.CustomerDeliveryAddress);
+            var existingCustomer = await _mongoDBService.FindCustomerAsync(customer.CustomerName, customer.CustomerSurname, customer.CustomerDeliveryAddress);
 
             if (existingCustomer == null)
             {
-                await _mongoDBService.CreateAsync(customers);
-                return customers.CustomerId;
+                await _mongoDBService.CreateAsync(customer);
+                return customer.CustomerId;
             }
             else
             {
                 return existingCustomer.CustomerId;
             }
         }
-        public async Task<Customers> FindCustomer(Request request)
+        public async Task<Customers> FindCustomer(Customers customer)
         {
-            if(request.CustomerId == null)
+            if(customer.CustomerId == null)
             {
-                var customers = new Customers()
-                {
-                    CustomerName = request.CustomerName,
-                    CustomerDeliveryAddress = request.CustomerDeliveryAddress,
-                    CustomerSurname = request.CustomerSurname
-                };
-
-                var existingCustomer = await _mongoDBService.FindCustomerAsync(request.CustomerName, request.CustomerSurname, request.CustomerDeliveryAddress);
+                var existingCustomer = await _mongoDBService.FindCustomerAsync(customer.CustomerName, customer.CustomerSurname, customer.CustomerDeliveryAddress);
                 if(existingCustomer != null)
                 {
                     return existingCustomer;
@@ -52,7 +38,7 @@ namespace TestTask1.Services
             }
             else
             {
-                var existingCustomer = await _mongoDBService.FindCustomerIdAsync(request.CustomerId);
+                var existingCustomer = await _mongoDBService.FindCustomerIdAsync(customer.CustomerId);
                 if(existingCustomer != null)
                 {
                     return existingCustomer;
