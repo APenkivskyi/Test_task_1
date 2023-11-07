@@ -10,7 +10,7 @@ namespace TestTask1Tests.Integration_Tests.Services
 {
     public class MongoDBServiceTests : IDisposable
     {
-        private readonly MongoCustomersAndOrdersRepository _mongoDBService;
+        private readonly MongoCustomerRepository _mongoDBService;
 
         public MongoDBServiceTests()
         {
@@ -23,7 +23,7 @@ namespace TestTask1Tests.Integration_Tests.Services
                 CollectionNameOrders = "orders"
             };
             var mongoDBSettings = Options.Create(settings);
-            _mongoDBService = new MongoCustomersAndOrdersRepository(mongoDBSettings);
+            _mongoDBService = new MongoCustomerRepository(mongoDBSettings);
         }
 
         [Fact]

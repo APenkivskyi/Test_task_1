@@ -6,9 +6,9 @@ namespace TestTask1.Services
 {
     public class OrderService : IOrderService
     {
-        private readonly ICustomerAndOrderRepository _customerRepository;
+        private readonly ICustomerRepository _customerRepository;
 
-        public OrderService(ICustomerAndOrderRepository mongoDBService)
+        public OrderService(ICustomerRepository mongoDBService)
         {
             _customerRepository = mongoDBService;
         }

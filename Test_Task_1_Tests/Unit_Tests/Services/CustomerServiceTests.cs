@@ -15,12 +15,12 @@ namespace TestTask1Tests.Unit_Tests.Services
 {
     public class CustomerServiceTests
     {
-        private Mock<ICustomerAndOrderRepository> _customerRepository;
+        private Mock<ICustomerRepository> _customerRepository;
         private CustomerService _customerService;
         [SetUp]
         public void Setup()
         {
-            _customerRepository = new Mock<ICustomerAndOrderRepository>();
+            _customerRepository = new Mock<ICustomerRepository>();
             _customerService = new CustomerService(_customerRepository.Object);
         }
         Request request = new Request

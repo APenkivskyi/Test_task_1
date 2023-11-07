@@ -10,22 +10,15 @@ namespace TestTask1.Services;
 public class MongoCustomersAndOrdersRepository : ICustomerAndOrderRepository
 {
     private readonly IMongoCollection<Customers> _customersCollection;
-    private readonly IMongoCollection<Orders> _ordersCollection;
     public MongoCustomersAndOrdersRepository(IOptions<MongoDBSettings> mongoDBSettings)
     {
         MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);
         IMongoDatabase database = client.GetDatabase(mongoDBSettings.Value.DatabaseName);
         _customersCollection = database.GetCollection<Customers>(mongoDBSettings.Value.CollectionNameCustomers);
-        _ordersCollection = database.GetCollection<Orders>(mongoDBSettings.Value.CollectionNameOrders);
     }
     public async Task CreateAsync(Customers customers)
     {
         await _customersCollection.InsertOneAsync(customers);
-        return;
-    }
-    public async Task CreateAsync(Orders orders)
-    {
-        await _ordersCollection.InsertOneAsync(orders);
         return;
     }
     public async Task<Customers> FindCustomerAsync(string CustomerName, string CustomerSurname, string CustomerDeliveryAddress)
@@ -43,12 +36,5 @@ public class MongoCustomersAndOrdersRepository : ICustomerAndOrderRepository
             .FirstOrDefaultAsync();
 
         return existingCustomer;
-    }
-    public async Task<List<Orders>> FindOrdersByCustomerId(string customerId)
-    {
-        var existingOrders = await _ordersCollection
-            .Find(x => x.OrderCustomerId == customerId)
-            .ToListAsync();
-        return existingOrders;
     }
 }
