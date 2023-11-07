@@ -19,29 +19,6 @@ namespace TestTask1.Controllers
             _customerService = customerService;
             _orderService = orderService;
         }
-        [HttpPost("AddCustomerOrOrder")]
-        public async Task<IActionResult> AddCustomerOrOrder([FromBody] Request request)
-        {
-            try
-            {
-                if (request != null)
-                {
-                    string customerID = await _customerService.CreatingClientAsync(request);
-
-                    if (!string.IsNullOrEmpty(customerID))
-                    {
-                        await _orderService.OrderCreation(request, customerID);
-                        return Ok("OK");
-                    }
-                    return BadRequest();
-                }
-                return BadRequest(string.Empty);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Error: {ex.Message}");
-            }
-        }
         [HttpPost("AddCustomer")]
         public async Task<IActionResult> AddCustomer([FromBody] Request request)
         {

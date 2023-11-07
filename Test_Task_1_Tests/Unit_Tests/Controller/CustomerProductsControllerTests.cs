@@ -28,28 +28,6 @@ namespace TestTask1Tests.Unit_Tests.Controller
             _controller = new CustomerProductsController(_mockICustomerService.Object, _mockIOrderService.Object);
         }
         [Test]
-        public async Task ShouldAddOrderAndCustomerResultSuccess() // Sprawdzamy dodawanie klienta i zamówienia do bazy
-        {
-            // Przygotowanie danych testowych
-            Request request = new Request
-            {
-                CustomerName = "Adam",
-                CustomerSurname = "Kowalski",
-                CustomerDeliveryAddress = "Beach street",
-                OrderName = "Sample Order",
-                OrderDescription = "Sample Description",
-                OrderPrice = 100
-            };
-            _mockICustomerService.Setup(x => x.CreatingClientAsync(request)).ReturnsAsync("342235234543"); // Symuluemy zwracanie funcją CreatingClientAsync ID kupującego.
-
-            // Wywołanie metody AddCustomerOrOrder
-            var result = await _controller.AddCustomerOrOrder(request);
-
-            // Sprawdzenie, czy wynik to OkObjectResult
-            Assert.IsInstanceOf<OkObjectResult>(result);
-
-        }
-        [Test]
         public async Task ShouldAddCustomerResultSuccess() // Sprawdzamy dodawanie klienta
         {
             // Przygotowanie danych testowych
