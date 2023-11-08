@@ -1,4 +1,4 @@
-﻿/*using Castle.Core.Resource;
+﻿using Castle.Core.Resource;
 using Moq;
 using NUnit.Framework;
 using System;
@@ -15,18 +15,18 @@ namespace TestTask1Tests.Unit_Tests.Services
     public class OrderServiceTests
     {
         private Mock<ICustomerRepository> _customerRepository;
+        private Mock<IOrderRepository> _oderRepository;
         private OrderService _orderService;
         [SetUp]
         public void Setup()
         {
             _customerRepository = new Mock<ICustomerRepository>();
-            _orderService = new OrderService(_customerRepository.Object);
+            _oderRepository = new Mock<IOrderRepository>();
+            _orderService = new OrderService(_oderRepository.Object, _customerRepository.Object);
         }
-        Request request = new Request
+        Orders order = new Orders
         {
-            CustomerName = "Adam",
-            CustomerSurname = "Kowalski",
-            CustomerDeliveryAddress = "Beach street",
+            OrderCustomerId = "32423543563454",
             OrderName = "Sample Order",
             OrderDescription = "Sample Description",
             OrderPrice = 100
@@ -39,16 +39,27 @@ namespace TestTask1Tests.Unit_Tests.Services
             CustomerId = "32423543563454"
         };
         [Test]
-        public async Task CreatedNewOrder_ShouldCreateOrder()
+        public async Task CreateNewOrder_ResultCreatedNewOrder()
         {
-            string customerID = "3242354543232"; // Fake Id kupującego
-            _customerRepository.Setup(x => x.FindCustomerId(customerID)).ReturnsAsync(customers);
+            _customerRepository.Setup(x => x.FindCustomerId(customers.CustomerId)).ReturnsAsync(customers);
             // Wywołanie metody OrderCreation
-            await _orderService.OrderCreation(request, customerID);
+            await _orderService.OrderCreation(order);
             // Sprawdzenie, czy metoda OrderCreation dla zamówienia została wywołana
-            _customerRepository.Verify(x => x.CreateAsync(It.IsAny<Orders>()), Times.Once);
+            _oderRepository.Verify(x => x.CreateAsync(It.IsAny<Orders>()), Times.Once);
+        }
+        [Test]
+        public async Task OrderSearchUsingCustomerIdResultOrder()
+        {
+            // przygotowanie danych
+            var ordersList = new List<Orders> { order };
+            _customerRepository.Setup(x => x.FindCustomerId(order.OrderCustomerId)).ReturnsAsync(customers);
+            _oderRepository.Setup(x => x.FindOrdersByCustomerId(customers.CustomerId)).ReturnsAsync(ordersList);
+            // Wywołanie funkcji 
+            var result = _orderService.FindOrders(customers.CustomerId);
+            // Sprawdzamy wynik
+            Assert.AreEqual(result.Result.Count, 1);
+            Assert.AreEqual(result.Result[0], ordersList[0]);
         }
 
-    }
 }
-*/
+}

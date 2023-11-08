@@ -10,11 +10,9 @@ namespace TestTask1.Controllers
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerService _customerService;
-        private readonly IOrderService _orderService;
-        public CustomerController(ICustomerService customerService, IOrderService orderService)
+        public CustomerController(ICustomerService customerService)
         {
             _customerService = customerService;
-            _orderService = orderService;
         }
         [HttpPost("AddCustomer")]
         public async Task<IActionResult> AddCustomer([FromBody] Customers customer)
