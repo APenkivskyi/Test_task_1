@@ -5,19 +5,19 @@ namespace TestTask1.Services
 {
     public class CustomerService : ICustomerService
     {
-        private readonly ICustomerRepository _mongoDBService;
+        private readonly ICustomerRepository _customerRepository;
 
         public CustomerService(ICustomerRepository mongoDBService)
         {
-            _mongoDBService = mongoDBService;
+            _customerRepository = mongoDBService;
         }
         public async Task<string> CreatingClientAsync(Customers customer)
         {
-            var existingCustomer = await _mongoDBService.FindCustomerAsync(customer.CustomerName, customer.CustomerSurname, customer.CustomerDeliveryAddress);
+            var existingCustomer = await _customerRepository.FindCustomerAsync(customer.CustomerName, customer.CustomerSurname, customer.CustomerDeliveryAddress);
 
             if (existingCustomer == null)
             {
-                await _mongoDBService.CreateAsync(customer);
+                await _customerRepository.CreateAsync(customer);
                 return customer.CustomerId;
             }
             else
@@ -29,7 +29,7 @@ namespace TestTask1.Services
         {
             if(customer.CustomerId == null)
             {
-                var existingCustomer = await _mongoDBService.FindCustomerAsync(customer.CustomerName, customer.CustomerSurname, customer.CustomerDeliveryAddress);
+                var existingCustomer = await _customerRepository.FindCustomerAsync(customer.CustomerName, customer.CustomerSurname, customer.CustomerDeliveryAddress);
                 if(existingCustomer != null)
                 {
                     return existingCustomer;
@@ -38,7 +38,7 @@ namespace TestTask1.Services
             }
             else
             {
-                var existingCustomer = await _mongoDBService.FindCustomerIdAsync(customer.CustomerId);
+                var existingCustomer = await _customerRepository.FindCustomerIdAsync(customer.CustomerId);
                 if(existingCustomer != null)
                 {
                     return existingCustomer;
