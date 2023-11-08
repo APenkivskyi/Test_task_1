@@ -49,9 +49,9 @@ namespace TestTask1.Controllers
                     {
                         return Ok(resultCustomer);
                     }
-                    return BadRequest("Klienta nie znaleziono!");
+                    return BadRequest("Customer not found!");
                 }
-                return BadRequest("Brak danych");
+                return BadRequest("No data available");
             }
             catch (Exception ex)
             {

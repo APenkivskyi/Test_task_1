@@ -21,10 +21,10 @@ public class MongoCustomerRepository : ICustomerRepository
         await _customersCollection.InsertOneAsync(customers);
         return;
     }
-    public async Task<Customers> FindCustomerAsync(string CustomerName, string CustomerSurname, string CustomerEmail)
+    public async Task<Customers> FindCustomerAsync(string CustomerEmail)
     {
         var existingCustomer = await _customersCollection
-            .Find(x => x.CustomerName == CustomerName && x.CustomerSurname == CustomerSurname && x.CustomerEmail == CustomerEmail)
+            .Find(x => x.CustomerEmail == CustomerEmail)
             .FirstOrDefaultAsync();
 
         return existingCustomer;
