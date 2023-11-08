@@ -6,18 +6,20 @@ namespace TestTask1.Services
 {
     public class OrderService : IOrderService
     {
+        private readonly IOrderRepository _orderRepository;
         private readonly ICustomerRepository _customerRepository;
 
-        public OrderService(ICustomerRepository mongoDBService)
+        public OrderService(IOrderRepository orderRepository, ICustomerRepository customerRepository)
         {
-            _customerRepository = mongoDBService;
+            _orderRepository = orderRepository;
+            _customerRepository = customerRepository;
         }
         public async Task<string?> OrderCreation(Orders order)
         {
-            var clientInDatabase = _customerRepository.FindCustomerIdAsync(order.OrderCustomerId);
-            if(clientInDatabase.Result != null)
+            var clientInDatabase = await _customerRepository.FindCustomerIdAsync(order.OrderCustomerId);
+            if (clientInDatabase != null)
             {
-                await _customerRepository.CreateAsync(order);
+                await _orderRepository.CreateAsync(order);
                 return (order.OrderId);
             }
             return null;
@@ -25,9 +27,9 @@ namespace TestTask1.Services
         public async Task<List<Orders>> FindOrders(string customerId)
         {
             var resultCustomer = await _customerRepository.FindCustomerIdAsync(customerId);
-            if(resultCustomer != null)
+            if (resultCustomer != null)
             {
-                var result = _customerRepository.FindOrdersByCustomerId(customerId);
+                var result = _orderRepository.FindOrdersByCustomerId(customerId);
                 if (result.Result != null)
                 {
                     return await result;

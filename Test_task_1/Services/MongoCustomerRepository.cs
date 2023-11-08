@@ -7,10 +7,10 @@ using System.Collections.Generic;
 
 namespace TestTask1.Services;
 
-public class MongoCustomersAndOrdersRepository : ICustomerAndOrderRepository
+public class MongoCustomerRepository : ICustomerRepository
 {
     private readonly IMongoCollection<Customers> _customersCollection;
-    public MongoCustomersAndOrdersRepository(IOptions<MongoDBSettings> mongoDBSettings)
+    public MongoCustomerRepository(IOptions<MongoDBSettings> mongoDBSettings)
     {
         MongoClient client = new MongoClient(mongoDBSettings.Value.ConnectionURI);
         IMongoDatabase database = client.GetDatabase(mongoDBSettings.Value.DatabaseName);

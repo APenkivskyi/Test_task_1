@@ -10,6 +10,7 @@ builder.Services.AddControllers();
 
 builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("MongoDB"));
 builder.Services.AddSingleton<ICustomerRepository, MongoCustomerRepository>();
+builder.Services.AddSingleton<IOrderRepository, MongoOrderRepository>();
 builder.Services.AddSingleton<IOrderService, OrderService>();
 builder.Services.AddSingleton<ICustomerService, CustomerService>();
 

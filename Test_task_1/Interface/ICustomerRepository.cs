@@ -2,7 +2,7 @@
 
 namespace TestTask1.Interface
 {
-    public interface ICustomerAndOrderRepository
+    public interface ICustomerRepository
     {
         Task CreateAsync(Customers customers);
         Task<Customers> FindCustomerAsync(string CustomerName, string CustomerSurname, string CustomerDeliveryAddress);
