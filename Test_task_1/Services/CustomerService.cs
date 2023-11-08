@@ -13,11 +13,11 @@ namespace TestTask1.Services
         }
         public async Task<string> CreatingClientAsync(Customers customer)
         {
-            var existingCustomer = await _customerRepository.FindCustomerAsync(customer.CustomerEmail);
+            var existingCustomer = await _customerRepository.FindCustomer(customer.CustomerEmail);
 
             if (existingCustomer == null)
             {
-                await _customerRepository.CreateAsync(customer);
+                await _customerRepository.Create(customer);
                 return customer.CustomerId;
             }
             else
@@ -29,7 +29,7 @@ namespace TestTask1.Services
         {
             if(customer.CustomerId == null)
             {
-                var existingCustomer = await _customerRepository.FindCustomerAsync(customer.CustomerEmail);
+                var existingCustomer = await _customerRepository.FindCustomer(customer.CustomerEmail);
                 if(existingCustomer != null)
                 {
                     return existingCustomer;
@@ -38,7 +38,7 @@ namespace TestTask1.Services
             }
             else
             {
-                var existingCustomer = await _customerRepository.FindCustomerIdAsync(customer.CustomerId);
+                var existingCustomer = await _customerRepository.FindCustomerId(customer.CustomerId);
                 if(existingCustomer != null)
                 {
                     return existingCustomer;

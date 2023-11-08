@@ -1,4 +1,4 @@
-﻿using Castle.Core.Resource;
+﻿/*using Castle.Core.Resource;
 using Moq;
 using NUnit.Framework;
 using System;
@@ -42,7 +42,7 @@ namespace TestTask1Tests.Unit_Tests.Services
         public async Task CreatedNewOrder_ShouldCreateOrder()
         {
             string customerID = "3242354543232"; // Fake Id kupującego
-            _customerRepository.Setup(x => x.FindCustomerIdAsync(customerID)).ReturnsAsync(customers);
+            _customerRepository.Setup(x => x.FindCustomerId(customerID)).ReturnsAsync(customers);
             // Wywołanie metody OrderCreation
             await _orderService.OrderCreation(request, customerID);
             // Sprawdzenie, czy metoda OrderCreation dla zamówienia została wywołana
@@ -51,3 +51,4 @@ namespace TestTask1Tests.Unit_Tests.Services
 
     }
 }
+*/

@@ -123,7 +123,7 @@
           "dependencies": {
             "FakeItEasy": {
               "target": "Package",
-              "version": "[7.4.0, )"
+              "version": "[8.0.0, )"
             },
             "Microsoft.AspNetCore.Mvc.Core": {
               "target": "Package",
@@ -151,7 +151,7 @@
             },
             "NUnit": {
               "target": "Package",
-              "version": "[3.13.3, )"
+              "version": "[3.14.0, )"
             },
             "NUnit3TestAdapter": {
               "target": "Package",
@@ -163,7 +163,7 @@
             },
             "xunit": {
               "target": "Package",
-              "version": "[2.5.3, )"
+              "version": "[2.6.1, )"
             },
             "xunit.runner.visualstudio": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

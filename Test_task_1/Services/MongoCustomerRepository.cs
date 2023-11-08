@@ -16,12 +16,12 @@ public class MongoCustomerRepository : ICustomerRepository
         IMongoDatabase database = client.GetDatabase(mongoDBSettings.Value.DatabaseName);
         _customersCollection = database.GetCollection<Customers>(mongoDBSettings.Value.CollectionNameCustomers);
     }
-    public async Task CreateAsync(Customers customers)
+    public async Task Create(Customers customers)
     {
         await _customersCollection.InsertOneAsync(customers);
         return;
     }
-    public async Task<Customers> FindCustomerAsync(string CustomerEmail)
+    public async Task<Customers> FindCustomer(string CustomerEmail)
     {
         var existingCustomer = await _customersCollection
             .Find(x => x.CustomerEmail == CustomerEmail)
@@ -29,7 +29,7 @@ public class MongoCustomerRepository : ICustomerRepository
 
         return existingCustomer;
     }
-    public async Task<Customers> FindCustomerIdAsync(string CustomerId)
+    public async Task<Customers> FindCustomerId(string CustomerId)
     {
         var existingCustomer = await _customersCollection
             .Find(x => x.CustomerId == CustomerId)

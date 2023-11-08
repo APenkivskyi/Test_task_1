@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿/*using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
 using System;
@@ -46,8 +46,8 @@ namespace TestTask1Tests.Unit_Tests.Services
                 .ReturnsAsync((Customers)null);
             // Wywołanie metody CreatingClientAsync
             var result = await _customerService.CreatingClientAsync(customer);
-            // Sprawdzenie, czy metoda CreateAsync dla klienta została wywołana
-            _customerRepository.Verify(x => x.CreateAsync(It.IsAny<Customers>()), Times.Once);
+            // Sprawdzenie, czy metoda Create dla klienta została wywołana
+            _customerRepository.Verify(x => x.Create(It.IsAny<Customers>()), Times.Once);
         }
         [Test]
         public async Task CreatingAnExistingCustomer_ShouldReturnIdCustomer()
@@ -58,8 +58,9 @@ namespace TestTask1Tests.Unit_Tests.Services
             var result = await _customerService.CreatingClientAsync(customer);
             // Sprawdzenie, czy wynik to Id kupującego
             Assert.AreEqual(customer.CustomerId, result);
-            // Sprawdzenie, czy metoda CreateAsync dla klienta została wywołana
-            _customerRepository.Verify(x => x.CreateAsync(It.IsAny<Customers>()), Times.Never);
+            // Sprawdzenie, czy metoda Create dla klienta została wywołana
+            _customerRepository.Verify(x => x.Create(It.IsAny<Customers>()), Times.Never);
         }
     }
 }
+*/

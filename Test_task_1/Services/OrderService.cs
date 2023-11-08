@@ -16,7 +16,7 @@ namespace TestTask1.Services
         }
         public async Task<string?> OrderCreation(Orders order)
         {
-            var clientInDatabase = await _customerRepository.FindCustomerIdAsync(order.OrderCustomerId);
+            var clientInDatabase = await _customerRepository.FindCustomerId(order.OrderCustomerId);
             if (clientInDatabase != null)
             {
                 await _orderRepository.CreateAsync(order);
@@ -26,7 +26,7 @@ namespace TestTask1.Services
         }
         public async Task<List<Orders>> FindOrders(string customerId)
         {
-            var resultCustomer = await _customerRepository.FindCustomerIdAsync(customerId);
+            var resultCustomer = await _customerRepository.FindCustomerId(customerId);
             if (resultCustomer != null)
             {
                 var result = _orderRepository.FindOrdersByCustomerId(customerId);
