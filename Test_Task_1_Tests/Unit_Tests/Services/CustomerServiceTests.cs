@@ -1,4 +1,4 @@
-﻿/*using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
 using System;
@@ -23,26 +23,18 @@ namespace TestTask1Tests.Unit_Tests.Services
             _customerRepository = new Mock<ICustomerRepository>();
             _customerService = new CustomerService(_customerRepository.Object);
         }
-        Request request = new Request
-        {
-            CustomerName = "Adam",
-            CustomerSurname = "Kowalski",
-            CustomerDeliveryAddress = "Beach street",
-            OrderName = "Sample Order",
-            OrderDescription = "Sample Description",
-            OrderPrice = 100
-        };
         Customers customer = new Customers
         {
             CustomerName = "Adam",
             CustomerSurname = "Kowalski",
             CustomerDeliveryAddress = "Beach street",
             CustomerId = "32423543563454",
+            CustomerEmail = "Adam.kowalski@gmail.com"
         };
         [Test]
         public async Task CreateNewCustomer_ShouldReturnNullIdCustomer()
         {
-            _customerRepository.Setup(x => x.FindCustomerAsync(request.CustomerName, request.CustomerSurname, request.CustomerDeliveryAddress))
+            _customerRepository.Setup(x => x.FindCustomer(customer.CustomerEmail))
                 .ReturnsAsync((Customers)null);
             // Wywołanie metody CreatingClientAsync
             var result = await _customerService.CreatingClientAsync(customer);
@@ -52,7 +44,7 @@ namespace TestTask1Tests.Unit_Tests.Services
         [Test]
         public async Task CreatingAnExistingCustomer_ShouldReturnIdCustomer()
         {
-            _customerRepository.Setup(x => x.FindCustomerAsync(request.CustomerName, request.CustomerSurname, request.CustomerDeliveryAddress))
+            _customerRepository.Setup(x => x.FindCustomer(customer.CustomerEmail))
                 .ReturnsAsync(customer);
             // Wywołanie metody CreatingClientAsync
             var result = await _customerService.CreatingClientAsync(customer);
@@ -61,6 +53,47 @@ namespace TestTask1Tests.Unit_Tests.Services
             // Sprawdzenie, czy metoda Create dla klienta została wywołana
             _customerRepository.Verify(x => x.Create(It.IsAny<Customers>()), Times.Never);
         }
+        [Test]
+        public async Task CustomerSearchUsingIdResultSuccessful()
+        {
+            // Przygotowanie danych testowych
+            _customerRepository.Setup(x => x.FindCustomerId(customer.CustomerId))
+                .ReturnsAsync(customer);
+            Customers testCustomer = new Customers
+            {
+                CustomerId = customer.CustomerId,
+            };
+            // Wywołanie metody
+            var result = _customerService.FindCustomer(testCustomer);
+            // Sprawdzamy wynik
+            Assert.AreEqual(customer.CustomerName, result.Result.CustomerName);
+            Assert.AreEqual(customer.CustomerSurname, result.Result.CustomerSurname);
+            Assert.AreEqual(customer.CustomerId, result.Result.CustomerId);
+            Assert.AreEqual(customer.CustomerEmail, result.Result.CustomerEmail);
+            Assert.AreEqual(customer.CustomerDeliveryAddress, result.Result.CustomerDeliveryAddress);
+            _customerRepository.Verify(x => x.FindCustomerId(customer.CustomerId), Times.Once);
+            _customerRepository.Verify(x => x.FindCustomer(customer.CustomerEmail), Times.Never);
+        }
+        [Test]
+        public async Task CustomerSearchUsingEmailResultSuccessful()
+        {
+            // Przygotowanie danych testowych
+            _customerRepository.Setup(x => x.FindCustomer(customer.CustomerEmail))
+                .ReturnsAsync(customer);
+            Customers testCustomer = new Customers
+            {
+                CustomerEmail = customer.CustomerEmail,
+            };
+            // Wywołanie metody
+            var result = _customerService.FindCustomer(testCustomer);
+            // Sprawdzamy wynik
+            Assert.AreEqual(customer.CustomerName, result.Result.CustomerName);
+            Assert.AreEqual(customer.CustomerSurname, result.Result.CustomerSurname);
+            Assert.AreEqual(customer.CustomerId, result.Result.CustomerId);
+            Assert.AreEqual(customer.CustomerEmail, result.Result.CustomerEmail);
+            Assert.AreEqual(customer.CustomerDeliveryAddress, result.Result.CustomerDeliveryAddress);
+            _customerRepository.Verify(x => x.FindCustomerId(customer.CustomerId), Times.Never);
+            _customerRepository.Verify(x => x.FindCustomer(customer.CustomerEmail), Times.Once);
+        }
     }
 }
-*/
